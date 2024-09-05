@@ -1,0 +1,84 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(static/images/backgroud.jpg);
+    background-size: cover;  /* Changed to cover for full background coverage */
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.con {
+    background: rgba(255, 255, 255, 0.9); /* Added background color for contrast */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: 100%; /* Ensures responsiveness */
+    position: relative;
+    z-index: 1;
+}
+
+.con form {
+    display: flex;
+    flex-direction: column; /* Changed to column layout */
+    align-items: center;
+    width: 100%;
+}
+
+input[type=email], input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 15px;  /* Reduced padding for better layout */
+    margin: 10px 0;
+    border: 2px solid #33BC27;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Added for consistent sizing */
+}
+
+input[type=email]:focus, input[type=text]:focus, input[type=password]:focus, select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+h2 {
+    color: #33BC27;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+p {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.clearfix {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+#forgot_password, #login {
+    padding: 10px 20px;  /* Adjusted padding for better appearance */
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+}
+
+#forgot_password {
+    background-color: white;
+    color: #33BC27;
+    width: 45%;  /* Changed to percentage for consistent sizing */
+}
+
+#login {
+    background-color: #33BC27;
+    color: white;
+    width: 45%;
+}

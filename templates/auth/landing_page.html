@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tinder - Find Your Ideal Tech Talent</title>
+    <link rel="stylesheet" href="/static/css/landing_page.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img class="logo_img" src="/static/images/logo.png" alt="Dev Tinder Logo">
+        </div>
+        <div class="bottom">
+            <nav class="navbar">
+                <ul>
+                    <li><a href="" title="Get Started">Get Started</a></li>
+                    <li><a href="" title="Features">Features</a></li>
+                    <li><a href="" title="Specialisations">Specialisations</a></li>
+                    <li><a href="" title="Contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="login">
+                <a href="{{ url_for('login') }}">Sign in</a>
+            </div>
+        </div>
+    </header>
+    <div class="hero">
+        <div class="left">
+            <h3>Find Top Talent for Your Next Big Idea</h3>
+            <p>Whether you're building a website, app, game, or securing your digital space, we've got the perfect expert for you.</p>
+            <button class="herobut" type="button"onclick="window.location.href='{{ url_for('register') }}'" title="Get Started">Get Started</button>
+        </div>
+        <div class="right">
+            <img class="hero_img" src="/static/images/hero_img.png" alt="Find Tech Talent">
+        </div>
+    </div>
+    <div class="chooseus">
+        <h3 class="choice">Why Choose Dev Tinder?</h3>
+        <div class="firstcards">
+            <div class="fcard">
+                <h4>Easy to Use</h4>
+                <p>Find the right professional for your project with just a few clicks.</p>
+            </div>
+            <div class="fcard">
+                <h4>Verified Talent</h4>
+                <p>Our experts are vetted to ensure you get the best quality work.</p>
+            </div>
+            <div class="fcard">
+                <h4>Wide Range of Skills</h4>
+                <p>From developers to designers, project managers, and cybersecurity experts.</p>
+            </div>
+            <div class="fcard">
+                <h4>Secure Payments</h4>
+                <p>Pay securely through our platform once you're satisfied with the work.</p>
+            </div>
+        </div>
+    </div>
+    <div class="specialisation">
+        <h3 class="Spec_title">Specialisations</h3>
+        <div class="spec_row">
+            <div class="spec_card">
+                <h4>Web Developers</h4>
+                <p>Expert coders ready to build your next big thing.</p>
+            </div>
+            <div class="spec_card">
+                <h4>Designers</h4>
+                <p>Creative minds to bring your vision to life.</p>
+            </div>
+            <div class="spec_card">
+                <h4>Project Managers</h4>
+                <p>Leaders to guide your project from start to finish.</p>
+            </div>
+            <div class="spec_card">
+                <h4>Data Scientists</h4>
+                <p>Data-driven professionals to help you make informed decisions.</p>
+            </div>
+        </div>
+    </div>
+    <div class="aboutus">
+        <h2 class="abt">About Us</h2>
+        <p class="abtp">At Dev Tinder, we're committed to connecting you with the best talent in tech. Our platform is designed to be user-friendly, secure, and reliable, ensuring that you can focus on what matters most—bringing your ideas to life.</p>
+    </div>
+    <div class="ourteam">
+        <h2 class="team">Meet Our Team</h2>
+        <div class="cardsholder">
+            <div class="teamcard">
+                <img src="/static/images/v33_99.png" class="iconimg" alt="Team Member">
+                <h3 class="name">Saad</h3>
+                <div class="teamicon">
+                    <a href="https://github.com/saadsgh123" target="_blank"><img src="/static/images/v33_107.png" class="img" alt="Social Icon"></a>
+                    <a href="index.html"><img src="/static/images/v33_111.png" class="img" alt="Social Icon"></a>
+                    <a href="index.html"><img src="/static/images/v33_113.png" class="img" alt="Social Icon"></a>
+                </div>
+            </div>
+            <div class="teamcard">
+                <img src="/static/images/v33_99.png" class="iconimg" alt="Team Member">
+                <h3 class="name">Zouhair</h3>
+                <div class="teamicon">
+                    <a href="https://github.com/zoubjd" target="_blank"><img src="/static/images/v33_107.png" class="img" alt="Social Icon"></a>
+                    <a href="index.html"><img src="/static/images/v33_111.png" class="img" alt="Social Icon"></a>
+                    <a href="index.html"><img src="/static/images/v33_113.png" class="img" alt="Social Icon"></a>
+                </div>
+            </div>
+            <div class="teamcard">
+                <img src="/static/images/v33_99.png" class="iconimg" alt="Team Member">
+                <h3 class="name">Badr</h3>
+                <div class="teamicon">
+                    <a href="https://github.com/bouzagui"><img src="/static/images/v33_107.png" class="img" alt="Social Icon"></a>
+                    <a href="https://www.linkedin.com/in/badr-bouzagui-23aa41265/" target="_blank"><img src="/static/images/v33_111.png" class="img" alt="Social Icon"></a>
+                    <a href="https://x.com/McBadr13" target="_blank"><img src="/static/images/v33_113.png" class="img" alt="Social Icon"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© All Rights Reserved - Dev Tinder 2024</p>
+    </footer>
+</body>
+</html>

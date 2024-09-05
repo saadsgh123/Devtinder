@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Talent Platform</title>
+  <link rel="stylesheet" href="/static/css/home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <div class="logo">LOGO</div>
+  <nav>
+    <a href="{{ url_for('home') }}">HOME</a>
+    <a href="{{ url_for('feed') }}">FEED</a>
+    <a href="{{ url_for('dashboard') }}">DASHBOARD</a>
+    <img class="profile-circle" src="/static/images/img.png" alt="Profile">
+  </nav>
+</header>
+
+<main>
+  <h1>The Largest Platform to Reach Tech Talents</h1>
+
+  <div class="search-bar">
+    <input type="text" placeholder="Search for Job title">
+    <button type="submit" onclick="location.href='{{ url_for('feed') }}'">Search</button>
+  </div>
+
+  <div class="filters">
+    <select name="experience" id="experience">
+      <option value="">Experience Level</option>
+      <option value="junior">Junior</option>
+      <option value="mid">Mid</option>
+      <option value="senior">Senior</option>
+    </select>
+    <select name="location" id="location">
+      <option value="">Location</option>
+      <option value="remote">Remote</option>
+      <option value="onsite">Onsite</option>
+    </select>
+    <select name="technology" id="technology">
+      <option value="">Technology</option>
+      <option value="js">JavaScript</option>
+      <option value="python">Python</option>
+      <option value="java">Java</option>
+    </select>
+  </div>
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/backgroud.jpg);
+    background-size: contain;
+    background-position: 0%;
+    height: 100vh;
+    margin: 0;
+}
+
+.con {
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: auto;
+    position: relative;
+    z-index: 1;
+}
+
+.con form {
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+
+}
+
+input[type=email], input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 20px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: 2px solid #33BC27;
+    background: #f1f1f1;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+input[type='email'], input[type=text]:focus, input[type=password]:focus, select:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+h2 {
+    color: #33BC27;
+}
+
+
+.clearfix {
+    display: flex;
+    justify-content: center;
+}
+
+#forgot_password {
+    background-color: white;
+    color: #33BC27;
+    width: 25%; 
+    margin-top: 10px;
+}
+
+#login {
+    background-color: #33BC27;
+    color: white;
+    width: 20%; 
+    margin-top: 10px;
+}
+
+#forgot_password, #login {
+    padding: 1px 10px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}

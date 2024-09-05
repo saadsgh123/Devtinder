@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="../../static/css/styles.css">
+</head>
+<body>
+<div class="container_parent">
+  <!-- Sidebar Start -->
+  <div class="sidebar">
+    <div class="header">
+      <span class="logo">Logo</span>
+
+      <ul class="menu">
+        <li><a href="{{ url_for('dashboard') }}" class="menu-item active">General</a></li>
+        <li><a href="{{ url_for('messages') }}" class="menu-item">Messages</a></li>
+        <li><a href="#" class="menu-item">Profile</a></li>
+        <li><a href="#" class="menu-item">Settings</a></li>
+        <li><a href="{{ url_for('landing_page') }}" class="menu-item">Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <a href="#" class="profile">
+        <img alt="Profile" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" class="profile-image"/>
+        <div class="profile-info">
+          <p class="profile-text">
+            <strong class="profile-name">Eric Frusciante</strong> <br>
+            <span class="profile-email">eric@frusciante.com</span>
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!-- Sidebar End -->
+
+  <!-- Main Content Start -->
+  <div class="main-content">
+    <!-- Username -->
+    <h1>Welcome back, John</h1>
+    <h3>Here’s an overview of your recent activities.</h3>
+    <!-- Cards row -->
+    <div class="kpis">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+
+    <!-- Progress bar -->
+    <h3 class="progress_bar_title"> Profile completion </h3>
+    <div>
+      <span id="ProgressLabel" class="sr-only">Loading</span>
+      <span
+          role="progressbar"
+          aria-labelledby="ProgressLabel"
+          aria-valuenow="50"
+          class="progress-bar">
+           <!-- Progress value -->
+          <span class="progress-fill" style="width: 40%">
+             <!-- Progress value -->
+            <span class="progress-text">40%</span>
+          </span>
+      </span>
+    </div>
+    <h3 class="progress_bar_title"> Profile completion </h3>
+    <!-- Project_card_row -->
+    <div class="projects">
+      <div class="project_card"></div>
+      <div class="project_card"></div>
+      <div class="project_card"></div>
+      <button class="add_project_btn">
+        <div>+</div>
+      </button>
+    </div>
+
+  </div>
+  <!-- Main Content End -->
+</div>
+</body>
+</html>
