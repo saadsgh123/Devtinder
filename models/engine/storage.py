@@ -54,14 +54,14 @@ class Storage:
         self.__session.remove()
 
     # custom queries
-    def get_by_email(self, email):
+    def get_user_by_email(self, email):
         objs = self.__session.query(User).filter(User.email == email).first()
         return objs
 
-    def get_by_id(self, id):
+    def get_user_by_id(self, id):
         objs = self.__session.query(User).filter(User.id == id).first()
         return objs
 
-    def search_by_job_title(self, job_title):
+    def get_users_by_job_title(self, job_title):
         objs = self.__session.query(User).filter(User.job_title.like(f"%{job_title}%")).all()
         return objs
