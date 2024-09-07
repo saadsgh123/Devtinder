@@ -3,5 +3,5 @@ if __name__ == '__main__':
 
     users = storage.all()
     for k, v in users.items():
-        print(k, v)
+        print(k)
 
