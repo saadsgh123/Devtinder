@@ -7,6 +7,7 @@ if __name__ == '__main__':
     print("=========== END =============")
 
     print("=========== Get user by its JOB_TITLE =============")
-    user = storage.get_users_by_job_title("Full")
-    print(user.username)
+    users = storage.get_users_by_job_title("Full")
+    for user in users:
+        print(user.username)
     print("=========== END =============")
