@@ -1,7 +1,6 @@
 if __name__ == '__main__':
     from models import storage
 
-    users = storage.all()
-    for k, v in users.items():
-        print(v)
-
+    users = storage.all().values()
+    for user in users:
+        print(user.username)
