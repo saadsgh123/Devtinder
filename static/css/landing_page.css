@@ -211,6 +211,7 @@ h4 {
 .iconimg {
     height: 13em;
     width: 13em;
+    border-radius: 50%;
 }
 .img {
     height: 3em;
