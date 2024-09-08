@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def landing_page():
-    return render_template("auth/landing_page.html")
+    return render_template("auth/landing_page.html", title='Dev Tinder - Find Your Ideal Tech Talent')
 
 
 @app.route('/login')
@@ -44,3 +44,8 @@ def home():
 def feed():
     users = storage.all().values()
     return render_template("main/feed.html", users=list(users))
+
+
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
