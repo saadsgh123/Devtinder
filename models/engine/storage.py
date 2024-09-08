@@ -65,3 +65,5 @@ class Storage:
     def get_users_by_job_title(self, job_title):
         objs = self.__session.query(User).filter(User.job_title.like(f"%{job_title}%"))
         return objs
+
+

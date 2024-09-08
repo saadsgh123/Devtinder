@@ -3,18 +3,21 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: start;
+    align-items: start;
     margin: 0;
 }
 
 .form-container {
-    background-color: #1e1e1e;
+    background-color: #121212;
+    justify-content: start;
+    align-items: center;
+    display: inline;
     padding: 20px;
+    margin-left: 3%;
     border-radius: 8px;
     width: 100%;
     max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
