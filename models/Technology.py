@@ -7,7 +7,7 @@ class Technology(BaseModel, Base):
     id = Column(String(50), primary_key=True)
     name = Column(String(50))
     picture = Column(String(150))
-    parent_id = Column(Integer, ForeignKey('technology.id'))
+    # parent_id = Column(Integer, ForeignKey('technology.id'))
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
