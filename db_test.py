@@ -8,7 +8,10 @@ if __name__ == '__main__':
     print("=========== END =============")
     print("=========== Get user by its ID =============")
     user = storage.get_user_by_id(id=1)
-    print(user.id, user.email, user.job_title)
+    if user:
+        print(user.id, user.email, user.job_title)
+    else:
+        print("doesn't exists")
     print("=========== END =============")
 
     print("=========== Get user by its JOB_TITLE =============")
