@@ -5,8 +5,8 @@ from models.basemodel import Base, BaseModel
 class Technology(BaseModel, Base):
     __tablename__ = 'technology'
     id = Column(String, primary_key=True)
-    name = Column(String)
-    picture = Column(String)
+    name = Column(String(50))
+    picture = Column(String(150))
     parent_id = Column(Integer, ForeignKey('technology.id'))
 
     def __init__(self, **kwargs):
