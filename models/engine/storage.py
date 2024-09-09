@@ -29,7 +29,7 @@ class Storage:
             if cls is None or cls is classes[clss] or cls is clss:
                 objs = self.__session.query(classes[clss]).all()
                 for obj in objs:
-                    key = obj.__class__.__name__ + '.' + obj.id
+                    key = obj.id
                     new_dict[key] = obj
         return new_dict
 
