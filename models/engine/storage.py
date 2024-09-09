@@ -15,7 +15,7 @@ class Storage:
         DB_USER = "root"
         DB_PASSWORD = "anasaad"
         DB_HOST = "localhost"
-        DB_NAME = "dtdb"
+        DB_NAME = "saad"
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME))
         self.reload()
