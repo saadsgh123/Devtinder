@@ -23,11 +23,12 @@ if __name__ == '__main__':
     print("=========== END =============")
 
     print("=========== Get user by its JOB_TITLE =============")
-    schools = storage.all(School).values()
+    schools = storage.all("School").values()
     if schools:
         for school in schools:
             print(school.id, school.name)
-
+    else:
+        print("doesn't exists")
     print("=========== END =============")
 
 
