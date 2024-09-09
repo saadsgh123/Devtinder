@@ -7,7 +7,7 @@ if __name__ == '__main__':
     print(user.username, user.email, user.job_title)
     print("=========== END =============")
     print("=========== Get user by its ID =============")
-    user = storage.get_user_by_id(id=1)
+    user = storage.get_user_by_id(id="123e4567-e89b-12d3-a456-426614174001")
     if user:
         print(user.id, user.email, user.job_title)
     else:
