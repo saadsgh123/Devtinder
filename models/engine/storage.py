@@ -4,7 +4,13 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 import uuid
 from sqlalchemy import Column, Integer, String
 
-from models.User import Base, User
+from models.basemodel import Base
+from models.User import User
+from models.School import School
+from models.Education import Education
+from models.Technology import Technology
+
+classes = {"School": School, "Education": Education, "Technology": Technology, "User": User}
 
 
 class Storage:
@@ -20,13 +26,16 @@ class Storage:
                                       format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME))
         self.reload()
 
-    def all(self):
+    def all(self, cls=None):
+        """query on the current database session"""
         new_dict = {}
-        objs = self.__session.query(User).all()
-        for obj in objs:
-            key = obj.id
-            new_dict[key] = obj
-        return new_dict
+        for clss in classes:
+            if cls is None or cls is classes[clss] or cls is clss:
+                objs = self.__session.query(classes[clss]).all()
+                for obj in objs:
+                    key = obj.__class__.__name__ + '.' + obj.id
+                    new_dict[key] = obj
+        return (new_dict)
 
     def new(self, obj):
         """add the object to the current database session"""
