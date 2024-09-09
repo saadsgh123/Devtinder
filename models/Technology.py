@@ -4,7 +4,7 @@ from models.basemodel import Base, BaseModel
 
 class Technology(BaseModel, Base):
     __tablename__ = 'technology'
-    id = Column(String, primary_key=True)
+    id = Column(String(50), primary_key=True)
     name = Column(String(50))
     picture = Column(String(150))
     parent_id = Column(Integer, ForeignKey('technology.id'))
