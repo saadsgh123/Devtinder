@@ -5,7 +5,7 @@ from models.basemodel import Base, BaseModel
 class Education(BaseModel, Base):
     __tablename__ = 'education'
     id = Column(Integer, primary_key=True)
-    school_id = Column(Integer, ForeignKey('schools.id'))
+    school_id = Column(Integer, ForeignKey('school.id'))
     start_date = Column(String)
     end_date = Column(String)
     user_id = Column(Integer, ForeignKey('user.id'))
