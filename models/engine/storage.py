@@ -1,9 +1,5 @@
-from sqlalchemy import create_engine, MetaData
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-import uuid
-from sqlalchemy import Column, Integer, String
-
 from models.basemodel import Base
 from models.User import User
 from models.School import School
@@ -35,7 +31,7 @@ class Storage:
                 for obj in objs:
                     key = obj.__class__.__name__ + '.' + obj.id
                     new_dict[key] = obj
-        return (new_dict)
+        return new_dict
 
     def new(self, obj):
         """add the object to the current database session"""
@@ -74,5 +70,4 @@ class Storage:
     def get_users_by_job_title(self, job_title):
         objs = self.__session.query(User).filter(User.job_title.like(f"%{job_title}%"))
         return objs
-
 

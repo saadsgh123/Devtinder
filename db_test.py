@@ -1,6 +1,8 @@
 if __name__ == '__main__':
     from models import storage
-    print("=========== Get user by its ID =============")
+    from models.School import School
+
+    print("=========== Get all users =============")
     user = storage.all().values()
     for user in user:
         print(user.id, user.username, user.job_title)
@@ -19,4 +21,13 @@ if __name__ == '__main__':
     for user in users:
         print(user.username, user.email, user.job_title)
     print("=========== END =============")
+
+    print("=========== Get user by its JOB_TITLE =============")
+    schools = storage.all(School).values()
+    if schools:
+        for school in schools:
+            print(school.id, school.name)
+
+    print("=========== END =============")
+
 
