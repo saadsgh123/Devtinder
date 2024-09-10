@@ -4,10 +4,9 @@ if __name__ == '__main__':
     from models.User import User
 
     print("=========== Get all users =============")
-    user = storage.all(User).values()
-    for user in user:
+    users = storage.all(User).values()
+    for user in users:
         print(user.id, user.username, user.job_title)
-    print(user.username, user.email, user.job_title)
     print("=========== END =============")
     print("=========== Get user by its ID =============")
     user = storage.get_user_by_id(id="123e4567-e89b-12d3-a456-426614174001")
