@@ -1,9 +1,10 @@
-from lib2to3.pgen2.tokenize import Expfloat
+
 
 if __name__ == '__main__':
     from models import storage
     from models.School import School
     from models.User import User
+    import sys
 
     print("=========== Get all users =============")
     users = storage.all(User).values()
@@ -39,12 +40,12 @@ if __name__ == '__main__':
 
     print("=========== Create a New user =============")
     user = User(
-        username="John",
-        email="sdsghouri@gmail.com",
-        job_title="Data",
-        password="anasaad",
-        country="USA",
-        city="San Francisco",
+        username=sys.argv[1],
+        email=sys.argv[2],
+        job_title=sys.argv[3],
+        password=sys.argv[4],
+        country=sys.argv[5],
+        city=sys.argv[6],
         Exp=1)
     user.save()
     print("=========== END =============")
