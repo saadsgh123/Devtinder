@@ -50,7 +50,21 @@ from models import storage
 ```
 Awal hajda dirha hia t importi storage mn models package fin kayn ga3 functions lghat7taj o lighanchera7 mora hadchi
 ### 2. Functions:
-#### list dial all users
+#### I-list dial all users
+```python
+users = storage.all(User).values()
+for user in users:
+    print(user.id, user.username, user.job_title)
+```
+#### II-get user b ID dialo
+```python
+user = storage.get_user_by_id(id="123e4567-e89b-12d3-a456-426614174001")
+```
+#### III-get user b job_title dialo
+```python
+user = storage.get_user_by_id(id="123e4567-e89b-12d3-a456-426614174001")
+```
+#### VI-create a new user
 ```python
 
 ```
