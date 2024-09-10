@@ -48,6 +48,7 @@ if __name__ == '__main__':
         city=sys.argv[6],
         Exp=1)
     user.save()
+    print(user.id, user.email, user.job_title)
     print("=========== END =============")
     print("")
 
