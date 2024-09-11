@@ -39,15 +39,16 @@ if __name__ == '__main__':
     print("")
 
     print("=========== Create a New user =============")
-    user = User(
-        username=sys.argv[1],
-        email=sys.argv[2],
-        job_title=sys.argv[3],
-        password=sys.argv[4],
-        country=sys.argv[5],
-        city=sys.argv[6],
-        Exp=1)
-    user.save()
+    data = {
+        "username": sys.argv[1],
+        "email": sys.argv[2],
+        "job_title": sys.argv[3],
+        "password": sys.argv[4],
+        "country": sys.argv[5],
+        "city": sys.argv[6],
+        "Exp": 1
+    }
+    storage.create_user_profile(data)
     print(user.id, user.email, user.job_title)
     print("=========== END =============")
     print("")
