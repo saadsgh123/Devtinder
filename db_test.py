@@ -1,4 +1,3 @@
-from console.meta import email
 
 if __name__ == '__main__':
     from models import storage
