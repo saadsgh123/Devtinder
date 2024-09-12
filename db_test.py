@@ -7,12 +7,14 @@ if __name__ == '__main__':
 
     print("=========== Get all users =============")
     users = storage.all(User).values()
+    print("return type =>", type(users))
     for user in users:
         print(user.id, user.username, user.job_title)
     print("=========== END =============")
     print("")
     print("=========== Get user by its ID =============")
     user = storage.get_user_by_id(id="123e4567-e89b-12d3-a456-426614174001")
+    print("return type =>", type(user))
     if user:
         print(user.id, user.email, user.job_title)
     else:
@@ -22,6 +24,7 @@ if __name__ == '__main__':
 
     print("=========== Get user by its JOB_TITLE =============")
     users = storage.get_users_by_job_title("Data")
+    print("return type =>", type(users))
     for user in users:
         print(user.username, user.email, user.job_title)
     print("=========== END =============")

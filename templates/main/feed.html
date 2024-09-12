@@ -27,7 +27,6 @@
 
     <div class="filter-section">
       <div class="filter-title">Subject</div>
-      <a href="#" class="select-all">Select all</a>
       <div class="checkbox-group">
         <label><input type="checkbox"> Compose</label>
         <label><input type="checkbox"> UI (General)</label>
@@ -44,7 +43,6 @@
 
     <div class="filter-section">
       <div class="filter-title">Collections</div>
-      <a href="#" class="select-all">Select all</a>
       <div class="checkbox-group">
         <label><input type="checkbox"> Course</label>
         <label><input type="checkbox"> Pathway</label>
@@ -55,10 +53,10 @@
   <!-- Grid Section -->
   <div class="grid-container-section">
     <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" placeholder="Search for Job title">
+    <form class="search-bar" action="/feed" method="get">
+      <input type="text" id="search" name="search" placeholder="Search for Job title">
       <button type="submit">Search</button>
-    </div>
+    </form>
 
     <!-- Grid Container -->
     <div class="grid-container">

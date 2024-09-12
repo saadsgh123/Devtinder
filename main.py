@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 from models import storage
 
@@ -42,7 +42,11 @@ def home():
 
 @app.route("/feed")
 def feed():
-    users = storage.all().values()
+    if request.method == "GET":
+        search = request.args.get("search")
+        users = storage.get_users_by_job_title(search)
+    else:
+        users = storage.all().values()
     return render_template("main/feed.html", users=list(users))
 
 
