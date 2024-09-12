@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Talent Platform</title>
+  <title>Filter UI with Search Bar and Grid</title>
   <link rel="stylesheet" href="/static/css/feed.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
 </head>
-
 <header>
   <div class="logo">LOGO</div>
   <nav>
@@ -21,45 +20,69 @@
 </header>
 
 <body>
-<main>
-  <div class="search-section">
+<div class="container">
+  <!-- Filter Section -->
+  <div class="filter-container">
+    <div class="filter-header">Filter By</div>
+
+    <div class="filter-section">
+      <div class="filter-title">Subject</div>
+      <a href="#" class="select-all">Select all</a>
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Compose</label>
+        <label><input type="checkbox"> UI (General)</label>
+        <label><input type="checkbox"> ML</label>
+        <!-- Collapsible items -->
+        <div id="more-options" class="collapsed">
+          <label><input type="checkbox"> Advanced UI</label>
+          <label><input type="checkbox"> Animations</label>
+          <label><input type="checkbox"> UX Design</label>
+        </div>
+      </div>
+      <a href="#" class="more-link" id="toggle-more">More</a>
+    </div>
+
+    <div class="filter-section">
+      <div class="filter-title">Collections</div>
+      <a href="#" class="select-all">Select all</a>
+      <div class="checkbox-group">
+        <label><input type="checkbox"> Course</label>
+        <label><input type="checkbox"> Pathway</label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid Section -->
+  <div class="grid-container-section">
+    <!-- Search Bar -->
     <div class="search-bar">
       <input type="text" placeholder="Search for Job title">
       <button type="submit">Search</button>
     </div>
-    <div class="filters">
-      <select name="experience" id="experience">
-        <option value="">Experience level</option>
-      </select>
-      <select name="location" id="location">
-        <option value="">Location</option>
-      </select>
-    </div>
-  </div>
 
-<div class="profile-cards">
-    <ul>
-    {% for user in users %}
-    <div class="profile-card">
-      <div class="profile-image"></div>
-      <h3>{{ user.username }}</h3>
-      <p class="job-title">{{ user.job_title }}</p>
-      <p class="freelancer">Freelancer</p>
-      <div class="technologies">
-        <span class="tech">HTML</span>
-        <span class="tech">CSS</span>
-        <span class="tech">JS</span>
-        <span class="tech">+2</span>
+    <!-- Grid Container -->
+    <div class="grid-container">
+      <div class="profile-card">
+        <div class="profile-image"></div>
+        <h3>{{ user.username }}</h3>
+        <p class="job-title">{{ user.job_title }}</p>
+        <p class="freelancer">Freelancer</p>
+        <div class="technologies">
+          <span class="tech">HTML</span>
+          <span class="tech">CSS</span>
+          <span class="tech">JS</span>
+          <span class="tech">+2</span>
+        </div>
+        <p class="description">
+          small description description description description description
+        </p>
+        <button class="view-profile">view profile</button>
       </div>
-      <p class="description">
-        small description description description description description
-      </p>
-      <button class="view-profile">view profile</button>
-    </div>
-    </ul>
-   {% endfor %}
-  </div>
 
-</main>
+    </div>
+  </div>
+</div>
+
+<script src="/static/js/design.js"></script>
 </body>
 </html>
