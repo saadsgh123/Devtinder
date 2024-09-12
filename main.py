@@ -50,7 +50,7 @@ def home():
 
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
-    users = ["There is no job with this name !!!"]
+    users = []
     if request.method == "POST":
         search = request.form.get("search").strip()
         if search:
@@ -63,6 +63,8 @@ def feed():
             users = storage.get_users_by_job_title(url_search)
         else:
             return redirect(url_for('home'))
+    if len(users) == 0:
+        users = ["None"]
     return render_template("main/feed.html", users=users)
 
 
