@@ -40,9 +40,9 @@ def home():
     return render_template("main/home.html")
 
 
-@app.route("/feed", methods=['GET'])
+@app.route("/feed", methods=['GET', 'POST'])
 def feed():
-    if request.method == "GET":
+    if request.method == "POST":
         search = request.args.get("search")
         users = storage.get_users_by_job_title(search)
     else:
