@@ -68,8 +68,11 @@ class Storage:
         return objs
 
     def get_users_by_job_title(self, job_title):
+        users = []
         objs = self.__session.query(User).filter(User.job_title.like(f"%{job_title}%"))
-        return objs
+        for obj in objs:
+            users.append(obj)
+        return users
 
     def create_user_profile(self, username, email, password, job_title, country, city, small_bio="", location="", exp=1,  profile_pic="", github_url="", facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
         new_user = User(username=username, email=email, password=password, job_title=job_title, country=country, city=city, Exp=exp)
