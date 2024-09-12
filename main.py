@@ -40,7 +40,7 @@ def home():
     return render_template("main/home.html")
 
 
-@app.route("/feed")
+@app.route("/feed", methods=['GET'])
 def feed():
     if request.method == "GET":
         search = request.args.get("search")
