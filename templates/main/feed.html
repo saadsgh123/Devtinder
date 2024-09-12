@@ -63,22 +63,22 @@
     <!-- Grid Container -->
     <div class="grid-container">
       {% for user in users %}
-      <div class="profile-card">
-        <div class="profile-image"></div>
-        <h3>{{ user.username }}</h3>
-        <p class="job-title">{{ user.job_title }}</p>
-        <p class="freelancer">Freelancer</p>
-        <div class="technologies">
-          <span class="tech">HTML</span>
-          <span class="tech">CSS</span>
-          <span class="tech">JS</span>
-          <span class="tech">+2</span>
+        <div class="profile-card">
+          <div class="profile-image"></div>
+          <h3>{{ user.username }}</h3>
+          <p class="job-title">{{ user.job_title }}</p>
+          <p class="freelancer">Freelancer</p>
+          <div class="technologies">
+            <span class="tech">HTML</span>
+            <span class="tech">CSS</span>
+            <span class="tech">JS</span>
+            <span class="tech">+2</span>
+          </div>
+          <p class="description">
+            small description description description description description
+          </p>
+          <button class="view-profile">view profile</button>
         </div>
-        <p class="description">
-          small description description description description description
-        </p>
-        <button class="view-profile">view profile</button>
-      </div>
       {% endfor %}
     </div>
   </div>
