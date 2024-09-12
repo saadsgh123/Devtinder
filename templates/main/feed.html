@@ -61,9 +61,9 @@
     </div>
 
     <!-- Grid Container -->
-    {% raw %}
     <div class="grid-container">
       {% for user in users %}
+        {% if user.username %}
         <div class="profile-card">
           <div class="profile-image"></div>
           <h3>{{ user.username }}</h3>
@@ -80,9 +80,9 @@
           </p>
           <button class="view-profile">view profile</button>
         </div>
+        {% endfor %}
       {% endfor %}
     </div>
-    {% endraw %}
   </div>
 </div>
 
