@@ -70,8 +70,8 @@
 
     <!-- Grid Container -->
     <div class="grid-container">
+    {% if users %}
       {% for user in users %}
-        {% if user.username %}
         <div class="profile-card">
           <div class="profile-image"></div>
           <h3>{{ user.username }}</h3>
@@ -88,8 +88,10 @@
           </p>
           <button class="view-profile">view profile</button>
         </div>
-        {% endif %}
       {% endfor %}
+    {% else %}
+    <p>No users found with the search term.</p>
+    {% endif %}
     </div>
   </div>
 </div>
