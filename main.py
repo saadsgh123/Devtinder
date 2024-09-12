@@ -40,7 +40,7 @@ def messages():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if request.method == 'POST':
-        search = request.form['search']
+        search = request.form['search'].split()
         if search:
             return redirect(url_for('feed', search=search))
         else:
