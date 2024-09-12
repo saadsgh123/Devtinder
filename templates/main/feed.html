@@ -63,6 +63,7 @@
     <!-- Grid Container -->
     <div class="grid-container">
       {% for user in users %}
+        {% if user.id != null %}
         <div class="profile-card">
           <div class="profile-image"></div>
           <h3>{{ user.username }}</h3>
@@ -79,6 +80,7 @@
           </p>
           <button class="view-profile">view profile</button>
         </div>
+        {%endif%}
       {% endfor %}
     </div>
   </div>
