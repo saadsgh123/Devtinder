@@ -46,8 +46,8 @@ def feed():
         search = request.args.get("search")
         users = storage.get_users_by_job_title(search)
     else:
-        users = storage.all().values()
-    return render_template("main/feed.html", users=list(users))
+        users = list(storage.all().values())
+    return render_template("main/feed.html", users=users)
 
 
 if __name__ == "__main__":
