@@ -1,6 +1,6 @@
 from re import search
 
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 
 from models import storage
 
@@ -50,17 +50,18 @@ def home():
 
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
+    users = []
     if request.method == "POST":
-        # Use request.form to access POST data
-        search = request.form.get("search")
+        search = request.form.get("search").strip()
         if search:
             users = storage.get_users_by_job_title(search)
         else:
-            users = []
+            flash("Search field cannot be empty!", "warning")
     else:
         url_search = request.args.get("search")
         if url_search:
-            users = storage.get_users_by_job_title(url_search)
+            users = storage.get_users_by_job_title(url_search.strip())
+
     return render_template("main/feed.html", users=users)
 
 
