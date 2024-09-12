@@ -43,10 +43,14 @@ def home():
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
     if request.method == "POST":
-        search = request.args.get("search")
-        users = storage.get_users_by_job_title(search)
+        # Use request.form to access POST data
+        search = request.form.get("search")
+        if search:
+            users = storage.get_users_by_job_title(search)
+        else:
+            users = []
     else:
-        users = list(storage.all().values())
+        users = list(storage.all().values())  # Load all users if no search query
     return render_template("main/feed.html", users=users)
 
 
