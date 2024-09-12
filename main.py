@@ -1,4 +1,6 @@
-from flask import Flask, render_template, request
+from re import search
+
+from flask import Flask, render_template, request, redirect, url_for
 
 from models import storage
 
@@ -35,8 +37,12 @@ def messages():
     return render_template("main/messages.html")
 
 
-@app.route("/home")
+@app.route("/home", methods=['GET', 'POST'])
 def home():
+    if request.method == 'POST':
+        search = request.form['search']
+        if search:
+            return redirect(url_for('feed', search=search))
     return render_template("main/home.html")
 
 
@@ -50,7 +56,9 @@ def feed():
         else:
             users = []
     else:
-        users = list(storage.all().values())  # Load all users if no search query
+        url_search = request.args.get("search")
+        if url_search:
+            users = storage.get_users_by_job_title(url_search)
     return render_template("main/feed.html", users=users)
 
 

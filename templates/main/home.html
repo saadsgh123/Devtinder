@@ -24,10 +24,10 @@
 <main>
   <h1>The Largest Platform to Reach Tech Talents</h1>
 
-  <div class="search-bar">
-    <input type="text" placeholder="Search for Job title">
-    <button type="submit" onclick="location.href='{{ url_for('feed') }}'">Search</button>
-  </div>
+  <form class="search-bar" action="/feed", method="get">
+    <input type="text" placeholder="Search for Job title" id="search" name="search">
+    <button type="submit">Search</button>
+  </form>
 
 </main>
 
