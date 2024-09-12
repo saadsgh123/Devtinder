@@ -58,7 +58,7 @@ def feed():
         else:
             flash("Search field cannot be empty!", "warning")
     else:
-        url_search = request.args.get("search")
+        url_search = request.args.get("search").strip()
         if url_search:
             users = storage.get_users_by_job_title(url_search)
         else:
