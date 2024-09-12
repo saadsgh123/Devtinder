@@ -43,6 +43,8 @@ def home():
         search = request.form['search']
         if search:
             return redirect(url_for('feed', search=search))
+        else:
+            return redirect(url_for('home'))
     return render_template("main/home.html")
 
 
