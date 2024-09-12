@@ -60,7 +60,9 @@ def feed():
     else:
         url_search = request.args.get("search")
         if url_search:
-            users = storage.get_users_by_job_title(url_search.strip())
+            users = storage.get_users_by_job_title(url_search)
+        else:
+            return redirect(url_for('home'))
 
     return render_template("main/feed.html", users=users)
 
