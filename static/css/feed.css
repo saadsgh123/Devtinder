@@ -200,6 +200,21 @@ h3 {
   text-align: center;
 }
 
+.error-message  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  margin: 20px 0;
+}
+
+.error-message p {
+  color: red;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
 /* Responsive Grid */
 @media (max-width: 768px) {
   .container {

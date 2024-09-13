@@ -56,10 +56,10 @@ def feed():
         if search:
             users = storage.get_users_by_job_title(search)
             if users is None:
-                flash("No users found", category="error")
+                flash("No users found", category="error-message")
 
         else:
-            flash("Search field cannot be empty!", "warning")
+            flash("Search field cannot be empty!", "error-message")
     else:
         url_search = request.args.get("search").strip()
         if url_search:
