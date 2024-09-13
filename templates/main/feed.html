@@ -58,13 +58,13 @@
       <button type="submit">Search</button>
     </form>
 
-  {% with messages = get_flashed_messages(with_categories=true) %}
-  {% if messages %}
-      {% for category, message in messages %}
-        <p class="{{ category }}">{{ message }}</p>
-      {% endfor %}
-  {% endif %}
-{% endwith %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="error-message">
+            <p class="{{ messages[-1][0] }}">{{ messages[-1][1] }}</p>
+            </div>
+        {% endif %}
+    {% endwith %}
 
     <!-- Grid Container -->
     <div class="grid-container">
