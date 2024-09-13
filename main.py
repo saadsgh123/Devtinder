@@ -55,17 +55,21 @@ def feed():
         search = request.form.get("search").strip()
         if search:
             users = storage.get_users_by_job_title(search)
-            if users is None:
+            # Check if users is empty, not None
+            if not users:
                 flash("No users found", category="error-message")
-
         else:
             flash("Search field cannot be empty!", "error-message")
     else:
-        url_search = request.args.get("search").strip()
+        url_search = request.args.get("search")
         if url_search:
+            url_search = url_search.strip()
             users = storage.get_users_by_job_title(url_search)
+            if not users:
+                flash("No users found", category="error-message")
         else:
             return redirect(url_for('home'))
+
     return render_template("main/feed.html", users=users)
 
 
