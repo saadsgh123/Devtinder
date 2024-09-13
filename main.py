@@ -64,7 +64,7 @@ def feed():
         else:
             return redirect(url_for('home'))
     if len(users) == 0:
-        users = ["None"]
+        flash("No users found!", "warning")
     return render_template("main/feed.html", users=users)
 
 
