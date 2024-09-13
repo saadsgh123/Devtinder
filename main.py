@@ -55,6 +55,9 @@ def feed():
         search = request.form.get("search").strip()
         if search:
             users = storage.get_users_by_job_title(search)
+            if users is None:
+                flash("No users found", category="error")
+
         else:
             flash("Search field cannot be empty!", "warning")
     else:
@@ -63,8 +66,6 @@ def feed():
             users = storage.get_users_by_job_title(url_search)
         else:
             return redirect(url_for('home'))
-    if len(users) == 0:
-        flash("No users found!", "warning")
     return render_template("main/feed.html", users=users)
 
 
