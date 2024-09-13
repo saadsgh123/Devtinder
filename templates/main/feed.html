@@ -83,7 +83,11 @@
             <span class="tech">+2</span>
           </div>
           <p class="description">
+              {% if user.bio %}
               {{ user.bio }}
+              {% else %}
+                  <p></p>
+              {% endif %}
           </p>
           <button class="view-profile">view profile</button>
         </div>
