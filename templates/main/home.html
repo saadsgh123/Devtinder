@@ -15,7 +15,7 @@
   <div class="logo">LOGO</div>
   <nav>
     <a href="{{ url_for('home') }}">HOME</a>
-    <a href="{{ url_for('feed') }}">FEED</a>
+    <a href="{{ url_for('feed', search=search) }}">FEED</a>
     <a href="{{ url_for('dashboard') }}">DASHBOARD</a>
     <img class="profile-circle" src="/static/images/img.png" alt="Profile">
   </nav>
@@ -24,7 +24,7 @@
 <main>
   <h1>The Largest Platform to Reach Tech Talents</h1>
 
-  <form class="search-bar" action="/feed", method="get">
+  <form class="search-bar" action="/feed" method="get">
     <input type="text" placeholder="Search for Job title" id="search" name="search">
     <button type="submit">Search</button>
   </form>
