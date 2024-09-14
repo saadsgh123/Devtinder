@@ -51,7 +51,9 @@ nav a {
   width: 250px;
   border-radius: 2px;
   border: 1px solid #b7b3b3;
+  /* Let the height grow dynamically, but with a max limit */
   max-height: 500px;
+  overflow-y: auto; /* Allows scrolling if content exceeds max height */
 }
 
 .filter-header {
@@ -62,12 +64,10 @@ nav a {
 
 .filter-section {
   margin-bottom: 20px;
-  max-height: 500px;
 }
 
 .checkbox-group {
   margin-bottom: 20px;
-  max-height: 500px;
 }
 
 .filter-title {
@@ -75,6 +75,11 @@ nav a {
   font-weight: bold;
   margin-bottom: 10px;
 }
+
+.collapsed {
+  display: none;
+}
+
 
 .select-all, .more-link {
   color: #4185f4;
