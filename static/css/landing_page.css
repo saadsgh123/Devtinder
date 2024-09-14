@@ -16,7 +16,7 @@ header {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding: 10px 20px;
+    /* padding: 10px 20px; */
     gap: 150px;
 }
 nav  ul{
@@ -24,11 +24,18 @@ nav  ul{
     list-style: none;
     gap: 30px;
 }
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 45px;
+    font-size: 20px;
+}
 
-.login {
+/* .login {
     padding: 8px 15px;
     margin-right: 30px;
-}
+} */
 
 a {
     text-decoration: none;
@@ -42,6 +49,34 @@ a:hover {
 .logo_img {
     width: 50px;
     height: 60px;
+}
+nav li:first-child {
+    margin-right: auto;
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: white;
+    backdrop-filter: blur(10px);
+    box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.sidebar li {
+    width: 100%;
+}
+.sidebar a {
+    width: 100%;
+    text-align: center;
 }
 
 .hero {
@@ -102,6 +137,7 @@ h3 {
     align-items: center;
     padding: 10px 20px;
     gap: 50px;
+    overflow:visible;
 }
 
 .fcard {
@@ -277,3 +313,24 @@ footer {
     }
 }
 
+@media (max-width: 800px) {
+    .hideonmobile {
+        display: none;
+    }
+
+}
+@media (min-width: 801px) {
+    .hideondesktop {
+        display: none;
+    }
+}
+@media (max-width: 400px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+@media (max-width: 1000px){
+    #hideheropic {
+        display: none;
+    }
+}

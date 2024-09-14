@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dev Tinder - Find Your Ideal Tech Talent</title>
     <link rel="stylesheet" href="/static/css/landing_page.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
@@ -14,15 +15,22 @@
         <div class="bottom">
             <nav class="navbar">
                 <ul>
+                    <li class="hideonmobile"><a href="" title="Get Started">Get Started</a></li>
+                    <li class="hideonmobile"><a href="" title="Features">Features</a></li>
+                    <li class="hideonmobile"><a href="" title="Specialisations">Specialisations</a></li>
+                    <li class="hideonmobile"><a href="" title="Contact">Contact</a></li>
+                    <li class="hideonmobile"><a href="{{ url_for('login') }}">Sign in</a></li>
+                    <li class ="hideondesktop" onclick=showSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+                <ul class="sidebar">
+                    <li class="hidebar" onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26px" viewBox="0 -960 960 960" width="26px" fill="#5f6368"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
                     <li><a href="" title="Get Started">Get Started</a></li>
                     <li><a href="" title="Features">Features</a></li>
                     <li><a href="" title="Specialisations">Specialisations</a></li>
                     <li><a href="" title="Contact">Contact</a></li>
+                    <li><a href="{{ url_for('login') }}">Sign in</a></li>
                 </ul>
             </nav>
-            <div class="login">
-                <a href="{{ url_for('login') }}">Sign in</a>
-            </div>
         </div>
     </header>
     <div class="hero">
@@ -32,7 +40,7 @@
             <button class="herobut" type="button"onclick="window.location.href='{{ url_for('register') }}'" title="Get Started">Get Started</button>
         </div>
         <div class="right">
-            <img class="hero_img" src="/static/images/hero_img.png" alt="Find Tech Talent">
+            <img class="hero_img" id="hideheropic" src="/static/images/hero_img.png" alt="Find Tech Talent">
         </div>
     </div>
     <div class="chooseus">
@@ -116,5 +124,15 @@
     <footer>
         <p>© All Rights Reserved - Dev Tinder 2024</p>
     </footer>
+    <script>
+        function showSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'flex';
+        }
+        function hideSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
