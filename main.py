@@ -5,7 +5,23 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from models import storage
 
 app = Flask(__name__)
+app.secret_key = 'your_super_secret_key' #decoy key
 
+#decoy data for testting
+user_data = {
+    'user1': {
+        'id' : 'user1',
+        'first_name': 'John',
+        'last_name': 'Doe',
+        'email': 'Qp5pG@example.com',
+        'job_title': 'FullStack',
+        'phone_number': '123-456-7890',
+        'address': '123 Main St',
+        'postal_code': '12345',
+        'city': 'Anytown',
+        'portfolio': 'https://example.com'
+    }
+}
 
 @app.route('/')
 def landing_page():
@@ -22,9 +38,47 @@ def register():
     return render_template("auth/register.html")
 
 
-@app.route('/informations')
-def informations():
-    return render_template("main/informations.html")
+def information():
+    #user_id = session.get('user_id', 'user1')  # Simulate user login
+    user_id = 'user1'
+
+    if request.method == 'POST':
+        user_info = {
+            'first_name': request.form.get('first-name'),
+            'last_name': request.form.get('last-name'),
+            'email': request.form.get('email'),
+            'job_title': request.form.get('job-title'),
+            'phone_number': request.form.get('phone-number'),
+            'address': request.form.get('address'),
+            'postal_code': request.form.get('postal-code'),
+            'city': request.form.get('city'),
+            'portfolio': request.form.get('portfolio')
+        }
+        
+
+        user_data[user_id] = user_info
+
+
+        return redirect(url_for('information'))
+
+    if user_id in user_data:
+        user_info = user_data[user_id] 
+    else:
+
+        user_info = {
+            'first_name': '',
+            'last_name': '',
+            'email': '',
+            'job_title': '',
+            'phone_number': '',
+            'address': '',
+            'postal_code': '',
+            'city': '',
+            'portfolio': ''
+        }
+
+    # Render the form with user information (blank or pre-filled)
+    return render_template('profile.html', user_info=user_info)
 
 
 @app.route('/dashboard')
