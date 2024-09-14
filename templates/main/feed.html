@@ -15,7 +15,7 @@
     <a href="{{ url_for('home') }}">HOME</a>
     <a href="">DASHBOARD</a>
     <a href="">CONTACT US</a>
-    <img src="/static/images/img.png" class="profile-circle">
+    <img src="/static/images/img.png" class="profile-circle" alt="">
   </nav>
 </header>
 
@@ -35,10 +35,10 @@
         <div id="more-options" class="collapsed">
           <label><input type="checkbox"> React</label>
           <label><input type="checkbox"> Flask</label>
-          <label><input type="checkbox"> Express js</label>
+          <label><input type="checkbox"> Express.js</label>
           <label><input type="checkbox"> MySQL</label>
           <label><input type="checkbox"> Mangodb</label>
-          <label><input type="checkbox"> Sqllite</label>
+          <label><input type="checkbox"> SQLite</label>
           <label><input type="checkbox"> bash</label>
           <label><input type="checkbox"> linux</label>
           <label><input type="checkbox"> Kotlin</label>
@@ -72,7 +72,7 @@
   <div class="grid-container-section">
     <!-- Search Bar -->
     <form class="search-bar" action="/feed" method="POST">
-      <input type="text" id="search" name="search" placeholder="Search for Job title">
+      <label for="search"></label><input type="text" id="search" name="search" placeholder="Search for Job title">
       <button type="submit">Search</button>
     </form>
 
@@ -104,9 +104,10 @@
               {% if user.bio %}
               {{ user.bio }}
               {% else %}
-                  <p class="description"> bio </p>
-              {% endif %}
-          </p>
+                  <p class="description">
+                      bio
+                  </p>
+          {% endif %}
           <button class="view-profile">view profile</button>
         </div>
          {% endif %}
