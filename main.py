@@ -78,7 +78,7 @@ def information():
         }
 
     # Render the form with user information (blank or pre-filled)
-    return render_template('profile.html', user_info=user_info)
+    return render_template('informations.html', user_info=user_info)
 
 
 @app.route('/dashboard')
