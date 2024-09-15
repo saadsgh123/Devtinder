@@ -59,8 +59,6 @@ def information():
 
         user_data[user_id] = user_info
 
-        user_data.append(user_data)
-
         return redirect(url_for('information'))
 
     if user_id in user_data:
