@@ -37,7 +37,7 @@ def login():
 def register():
     return render_template("auth/register.html")
 
-
+@app.route('/information', methods=['GET', 'POST'])
 def information():
     #user_id = session.get('user_id', 'user1')  # Simulate user login
     user_id = 'user1'
