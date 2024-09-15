@@ -25,6 +25,11 @@ header {
     vertical-align: middle;
 }
 
+.logo img {
+    height: 50px;
+    width: 45px;
+}
+
 nav a {
     margin: 0 15px;
     text-decoration: none;

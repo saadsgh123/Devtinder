@@ -8,11 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/images/logo.png">
 </head>
 <body>
 
 <header>
-  <div class="logo">LOGO</div>
+  <div class="logo">
+    <img src="/static/images/logo.png" alt="logo">
+  </div>
   <nav>
     <a href="{{ url_for('home') }}">HOME</a>
     <a href="{{ url_for('feed') }}">FEED</a>

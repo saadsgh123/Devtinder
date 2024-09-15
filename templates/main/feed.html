@@ -8,12 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
+  <link rel="icon" href="/static/images/logo.png">
 </head>
 
 <header>
-  <div class="logo">LOGO</div>
+  <div class="logo">
+    <img src="/static/images/logo.png" alt="logo">
+  </div>
   <nav>
-    <a href="#">HOME</a>
+    <a href="{{ url_for('home') }}">HOME</a>
     <a href="#">DASHBOARD</a>
     <a href="#">CONTACT US</a>
     <img src="/static/images/img.png" class="profile-circle">

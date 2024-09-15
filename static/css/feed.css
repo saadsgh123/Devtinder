@@ -7,18 +7,15 @@ body {
   text-align: center;
 }
 
+.logo img{
+  width: 45px;
+  height: 50px;
+}
+
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 10px 30px;
   background-color: white;
-}
-
-.logo {
-  font-weight: bold;
-  font-size: 30px;
-  color: black;
 }
 
 nav a {
