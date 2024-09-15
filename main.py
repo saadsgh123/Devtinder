@@ -40,10 +40,11 @@ def register():
 @app.route('/information', methods=['GET', 'POST'])
 def information():
     #user_id = session.get('user_id', 'user1')  # Simulate user login
-    user_id = 'user1'
+    user_id = 'user2'
 
     if request.method == 'POST':
         user_info = {
+            'id': user_id,
             'first_name': request.form.get('first-name'),
             'last_name': request.form.get('last-name'),
             'email': request.form.get('email'),
@@ -58,6 +59,7 @@ def information():
 
         user_data[user_id] = user_info
 
+        user_data.append(user_data)
 
         return redirect(url_for('information'))
 
