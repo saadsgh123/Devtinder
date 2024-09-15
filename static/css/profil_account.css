@@ -1,0 +1,264 @@
+.image {
+    display: flex;
+    justify-content: space-between;
+    padding: 60px 100px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+}
+.footer-image {
+    flex-direction: row-reverse;
+}
+
+.header_flex {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+}
+h1 {
+    color: #33BC27;
+}
+.paragraph {
+    width: 600px;
+    height: 300px;
+}
+.nav-link {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    font-size: 25px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color:#33BC27;
+    padding-bottom: 5px;
+    transition: color 0.3 ease;
+}
+.nav-link a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #33BC27;
+    transition: width 0.3s ease;
+}
+
+.nav-link a:hover {
+    border-bottom: 2px solid #33BC27;
+}
+
+
+
+.profile-image {
+    width: 350px;
+    height: 350px;
+    background-image: url("../images/my-image.jpeg");
+    border-radius: 100%;
+    object-fit: cover;
+    border: 2px solid #33BC27;
+    margin-bottom: 10px;
+}
+
+.upload-button {
+    font-size: 16px;
+    padding: 5px;
+    cursor: pointer;
+    color: white;
+    position: relative;
+    top: 20;
+    left: 100px;
+    border: none;
+    border-radius: 5px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 50px;
+    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+.binary-image img {
+    width: 250px;
+    height: 250px;
+    margin-right: 50px;
+}
+
+.skils-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.skils-section h3 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.skils-bar {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.skils-bar img {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+section {
+    padding: 0;
+    margin: 0;
+}
+
+.education {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 20px;
+}
+
+.education img {
+    width: 300px;
+    height: 200px;
+}
+
+.education-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    bottom: 50px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 20px;
+}
+.subtitle {
+    font-size: 18px;
+}
+
+.date {
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+h4 {
+    display: flex;
+    justify-content: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.project {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Adjust the gap between columns */
+    padding: 20px;
+    /* background-color: #33BC27; */
+}
+
+.project img {
+    width: 250px;
+    height: 150px;
+    object-fit: cover;
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #67fb45;
+}
+
+.project-info img {
+    display: flex;
+    justify-content: space-between;
+    max-width: 200px;
+    right: 100px;
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 18px;
+   
+}
+
+.titles {
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    color: black;
+}
+
+.subtitles {
+    
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    color: black;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.social-icons img {
+    width: 50px;
+    height: 50px;
+    /* object-fit: cover; */
+    border-radius: 100%;
+    border: 2px solid #33BC27;
+    margin-right: 50px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-image {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-profile img{
+    width: 250px;
+    height: 250px;
+    position: relative;
+    left: 50px;
+    top: 50px;
+}
+
+.paragraph p {
+    position: relative;
+    left: 59px;
+}

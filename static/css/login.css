@@ -2,8 +2,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(static/images/backgroud.jpg);
-    background-size: cover;  /* Changed to cover for full background coverage */
+    background-image: url('../images/backgroud.jpg');
+    background-size: cover;
     background-position: center;
     height: 100vh;
     margin: 0;
@@ -11,32 +11,32 @@ body {
 }
 
 .con {
-    background: rgba(255, 255, 255, 0.9); /* Added background color for contrast */
+    background: rgba(255, 255, 255, 0.9);
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
-    width: 100%; /* Ensures responsiveness */
+    width: 100%;
     position: relative;
     z-index: 1;
 }
 
 .con form {
     display: flex;
-    flex-direction: column; /* Changed to column layout */
+    flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
 input[type=email], input[type=text], input[type=password], select {
     width: 100%;
-    padding: 15px;  /* Reduced padding for better layout */
+    padding: 15px;
     margin: 10px 0;
     border: 2px solid #33BC27;
     background: #f1f1f1;
     border-radius: 5px;
     font-size: 16px;
-    box-sizing: border-box; /* Added for consistent sizing */
+    box-sizing: border-box;
 }
 
 input[type=email]:focus, input[type=text]:focus, input[type=password]:focus, select:focus {
@@ -64,7 +64,7 @@ p {
 }
 
 #forgot_password, #login {
-    padding: 10px 20px;  /* Adjusted padding for better appearance */
+    padding: 10px 20px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 16px;
@@ -74,7 +74,7 @@ p {
 #forgot_password {
     background-color: white;
     color: #33BC27;
-    width: 45%;  /* Changed to percentage for consistent sizing */
+    width: 45%;
 }
 
 #login {

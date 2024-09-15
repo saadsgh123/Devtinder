@@ -9,22 +9,37 @@
 </head>
 <body>
     <div class="con">
-        <form action="{{ url_for('home') }}" method="POST">
-            <h2>Log In</h2>
-            <p>If you don't have an account, click <a href="/register">here</a></p>
 
-            <input type="email" placeholder="Email" name="email" id="email" required>
-            <input type="password" placeholder="Password" name="password" id="password" required>
+    <!-- Login Form -->
+    <form action="{{ url_for('login') }}" method="POST">  <!-- Form now submits to the login route -->
+        <h2>Log In</h2>
+        <p>If you don't have an account, click <a href="/register">here</a></p>
+    
+        <div>
+            {{ form.email.label }}
+            {{ form.email(id="email", size=30, placeholder="Email") }}
+            {% if form.email.errors %}
+              <span style="color: red;">{{ form.email.errors[0] }}</span>
+            {% endif %}
+        </div>
+        <div>
+            {{ form.password.label }}
+            {{ form.password(id="password", size=30, placeholder="Password") }}
+            {% if form.password.errors %}
+              <span style="color: red;">{{ form.password.errors[0] }}</span>
+            {% endif %}
+        </div>
 
-            <label>
-                <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-            </label>
-
-            <div class="clearfix">
-                <button id="forgot_password" type="button">Forgot Password</button>
-                <button id="login" type="submit" onclick="window.location.href='{{ url_for('home') }}'" >Login</button>
-            </div>
-        </form>
+        <!-- Render remember me checkbox with error handling -->
+        <label>
+            <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
+        </label>
+    
+        <div class="clearfix">
+            <button id="forgot_password" type="button">Forgot Password</button>
+            <button id="login" type="submit">Login</button>
+        </div>
+    </form>
     </div>
 </body>
 </html>
