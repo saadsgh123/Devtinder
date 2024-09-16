@@ -40,9 +40,17 @@ if __name__ == '__main__':
     print("=========== END =============")
     print("")
 
-    print("=========== Create a New user =============")
-
-    storage.create_user_profile(username=sys.argv[1], email=sys.argv[2], job_title=sys.argv[3], country=sys.argv[4], city=sys.argv[5], password=sys.argv[6], exp=sys.argv[7])
+    print("=========== Create a New user (**kwarg) =============")
+    user_dic = {
+        "username": sys.argv[1],
+        "email": sys.argv[2],
+        "job_title": sys.argv[3],
+        "country": sys.argv[4],
+        "city": sys.argv[5],
+        "password": sys.argv[6],
+        "exp": sys.argv[7]
+    }
+    user = User(user_dic)
     print(user.id, user.email, user.job_title)
     print("=========== END =============")
     print("")
