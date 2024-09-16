@@ -39,7 +39,6 @@ if __name__ == '__main__':
         print("doesn't exists")
     print("=========== END =============")
     print("")
-
     print("=========== Create a New user (**kwarg) =============")
     user_dic = {
         "username": sys.argv[1],
