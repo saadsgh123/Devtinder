@@ -5,6 +5,7 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from models import storage
 
 app = Flask(__name__)
+from models import storage
 
 
 @app.route('/')
@@ -22,9 +23,19 @@ def register():
     return render_template("auth/register.html")
 
 
-@app.route('/informations')
+@app.route('/informations', methods=['GET', 'POST'])
 def informations():
-    return render_template("main/informations.html")
+    if request.method == "POST":
+        storage.create_user_profile(
+            username=request.form.get('first-name'),
+            email=request.form.get('email'),
+            password=request.form.get('last-name'),
+            job_title=request.form.get('job-title'),
+            country=request.form.get('address'),
+            city=request.form.get('city'),
+        )
+        return redirect(url_for('home'))
+    return render_template("main/info.html")
 
 
 @app.route('/dashboard')
