@@ -25,7 +25,7 @@ def register():
 
 @app.route('/informations', methods=['GET', 'POST'])
 def informations():
-    user_id = ""
+    user_id = "123e4567-e89b-12d3-a456-426614174001"
     if user_id == "":
         if request.method == "POST":
             storage.create_user_profile(
