@@ -24,11 +24,11 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
-        username = request.form['username']
-        country = request.form['country']
-        email = request.form['email']
-        password = request.form['password']
-        confirm_password = request.form['confirm_password']
+        username = request.form.get('username')
+        country = request.form.get('country')
+        email = request.form.get('email')
+        password = request.form.get('password')
+        confirm_password = request.form.get('confirm_password')
         if password == confirm_password:
             new_user = storage.create_user_profile(username, country, email, password)
             session['user_id'] = new_user.id
