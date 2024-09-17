@@ -30,7 +30,8 @@ def register():
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
         if password == confirm_password:
-            new_user = storage.create_user_profile(username, country, email, password)
+            new_user = storage.create_user_profile(username=username, country=country,
+                                                   email=email, password=password)
             session['user_id'] = new_user.id
             return redirect(url_for('informations'))
     return render_template("auth/register.html")
