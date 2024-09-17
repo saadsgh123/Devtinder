@@ -24,7 +24,7 @@ def login():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == "POST":
-        username = request.form['username']
+        username = request.form['fullname']
         country = request.form['country']
         email = request.form['email']
         password = request.form['password']
