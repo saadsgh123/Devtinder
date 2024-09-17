@@ -1,7 +1,5 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
-
-from models import storage
 from models.basemodel import Base
 from models.User import User
 from models.School import School
