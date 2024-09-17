@@ -26,19 +26,26 @@ def register():
 @app.route('/informations', methods=['GET', 'POST'])
 def informations():
     user_id = "123e4567-e89b-12d3-a456-426614174001"
+    username = request.form.get('first-name'),
+    email = request.form.get('email'),
+    password = request.form.get('last-name'),
+    job_title = request.form.get('job-title'),
+    country = request.form.get('address'),
+    city = request.form.get('city'),
     if user_id == "":
         if request.method == "POST":
             storage.create_user_profile(
-                username=request.form.get('first-name'),
-                email=request.form.get('email'),
-                password=request.form.get('last-name'),
-                job_title=request.form.get('job-title'),
-                country=request.form.get('address'),
-                city=request.form.get('city'),
+                username=username,
+                email=email,
+                password=password,
+                job_title=job_title,
+                country=country,
+                city=city,
             )
             return redirect(url_for('home'))
     else:
         user = storage.get_user_by_id(user_id)
+
         return render_template("main/informations.html", user=user)
     return render_template("main/informations.html")
 
