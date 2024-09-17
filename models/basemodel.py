@@ -16,7 +16,7 @@ time = "%Y-%m-%dT%H:%M:%S.%f"
 
 Base = declarative_base()
 
-
+# the base model
 class BaseModel:
     """The BaseModel class from which future classes will be derived"""
     id = Column(String(60), primary_key=True)
@@ -49,12 +49,14 @@ class BaseModel:
         return "[{:s}] ({:s}) {}".format(self.__class__.__name__, self.id,
                                          self.__dict__)
 
+    # saves the current object to the storage
     def save(self):
         """updates the attribute 'updated_at' with the current datetime"""
         self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
 
+    # returns a dictionary containing all keys/values of __dict__
     def to_dict(self, save_fs=None):
         """returns a dictionary containing all keys/values of the instance"""
         new_dict = self.__dict__.copy()
@@ -70,6 +72,7 @@ class BaseModel:
                 del new_dict["password"]
         return new_dict
 
+    # deletes the current instance from the storage
     def delete(self):
         """delete the current instance from the storage"""
         models.storage.delete(self)

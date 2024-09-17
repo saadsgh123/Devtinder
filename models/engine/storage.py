@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 from models.User import Base, User
 
 
+# the storage class
 class Storage:
     __engine = None
     __session = None
@@ -20,6 +21,7 @@ class Storage:
                                       format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME))
         self.reload()
 
+    # gets all the objects
     def all(self):
         new_dict = {}
         objs = self.__session.query(User).all()
@@ -54,14 +56,17 @@ class Storage:
         self.__session.remove()
 
     # custom queries
+    # gets the user by email
     def get_by_email(self, email):
         objs = self.__session.query(User).filter(User.email == email).first()
         return objs
 
+    # gets the user by id
     def get_by_id(self, id):
         objs = self.__session.query(User).filter(User.id == id).first()
         return objs
 
+    # gets the users with a specific job title
     def search_by_job_title(self, job_title):
         objs = self.__session.query(User).filter(User.job_title.like(f"%{job_title}%")).all()
         return objs
