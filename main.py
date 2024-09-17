@@ -25,17 +25,21 @@ def register():
 
 @app.route('/informations', methods=['GET', 'POST'])
 def informations():
-    if request.method == "POST":
-        storage.create_user_profile(
-            username=request.form.get('first-name'),
-            email=request.form.get('email'),
-            password=request.form.get('last-name'),
-            job_title=request.form.get('job-title'),
-            country=request.form.get('address'),
-            city=request.form.get('city'),
-        )
-        return redirect(url_for('home'))
-    return render_template("main/informations.html")
+    user_id = ""
+    if user_id == "":
+        if request.method == "POST":
+            storage.create_user_profile(
+                username=request.form.get('first-name'),
+                email=request.form.get('email'),
+                password=request.form.get('last-name'),
+                job_title=request.form.get('job-title'),
+                country=request.form.get('address'),
+                city=request.form.get('city'),
+            )
+            return redirect(url_for('home'))
+    else:
+        user = storage.get_user_by_id(user_id)
+        return render_template("main/informations.html", user=user)
 
 
 @app.route('/dashboard')
