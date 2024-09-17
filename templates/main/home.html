@@ -20,7 +20,7 @@
     <a href="{{ url_for('home') }}">HOME</a>
     <a href="{{ url_for('feed') }}">FEED</a>
     <a href="{{ url_for('dashboard') }}">DASHBOARD</a>
-    <img class="profile-circle" src="/static/images/img.png" alt="Profile">
+    <img class="profile-circle" src="{{ user.profile_image }}" onclick="location.href='{{ url_for('profil') }}'" alt="Profile">
   </nav>
 </header>
 

@@ -8,14 +8,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY']='e6148d38d0678be929e2242658219bb2a54341d6f79187de719c5f1a5bee28a5'
 app.config['WTF_CSRF_ENABLED'] = True
 
-@app.route('/')
-@app.route('/landing_page')
-def landing_page():
-    return render_template("auth/landing_page.html")
-
-@app.route("/profil")
-def profil():
-    user = {
+user = {
         'profile_image': 'static/images/my-image.jpeg',
         'name': 'Badr Bouzagui',
         'skillls': ['Python', 'SQL', 'JavaScript', 'MySQL', 'CSS3', 'HTML5', 'C'],
@@ -57,6 +50,14 @@ def profil():
             }
         ]
     }
+
+@app.route('/')
+@app.route('/landing_page')
+def landing_page():
+    return render_template("auth/landing_page.html")
+
+@app.route("/profil")
+def profil():
     return render_template('main/profil_account.html', user=user)
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -64,18 +65,16 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        print("helo")
-        # Check the email and password
-        print(form.errors)
+        print("Form submitted")
         if form.email.data == 'badrbouzagui@gmail.com' and form.password.data == 'Badr@1998':
-            flash('You have been logged in!', 'success')
-            return redirect(url_for('informations'))  # Redirect to home on successful login
+            flash(f'You have been logged in!', 'success')
+            return redirect(url_for('home'))  # Redirect to home on successful login
         else:
             flash('Login Unsuccessful. Please check email and password', 'danger')
+    
+    # else:
+    #     print("Form validation failed:", form.errors)
 
-
-
-    # Render the login page with the form on both GET and failed POST
     return render_template("auth/login.html", form=form)
 
 
@@ -88,7 +87,7 @@ def register():
        return redirect(url_for('home'))
     return render_template("auth/register.html", form=form)
 
-@app.route('/informations', methods=['GET', 'POST'])
+@app.route('/informations', methods=['POST'])
 def informations():
     if request.method == 'POST':
         flash(f"Account created successfully for {request.form['fname']} {request.form['lname']}", 'success')
@@ -107,7 +106,9 @@ def messages():
 
 @app.route("/home")
 def home():
-    return render_template("main/home.html")
+    # if request.method == 'POST':
+    #     return redirect(url_for('home'))
+    return render_template("main/home.html", user=user)
 
 
 @app.route("/feed")

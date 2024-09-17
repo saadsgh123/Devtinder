@@ -9,10 +9,19 @@
 </head>
 <body>
     <div class="con">
+        <div class="con">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                  {% for category, message in messages %}
+                      <div class="alert alert-{{ category }}">{{ message }}</div>
+                  {% endfor %}
+                {% endif %}
+             {% endwith %}        
 
     <!-- Login Form -->
-    <form action="{{ url_for('login') }}" method="POST">  <!-- Form now submits to the login route -->
+    <form action="" method="POST">
         <h2>Log In</h2>
+        {{ form.hidden_tag() }}
         <p>If you don't have an account, click <a href="/register">here</a></p>
     
         <div>
