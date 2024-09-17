@@ -40,7 +40,7 @@ def register():
 @app.route('/informations/', methods=['GET', 'POST'])
 def informations():
     user_id = session.get('user_id')
-    curr_user = storage.get_user_profile(user_id)
+    curr_user = storage.get_user_by_id(user_id)
     if request.method == 'POST':
         firstname = request.form.get('first-name')
         lastname = request.form.get('last-name')
