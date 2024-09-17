@@ -40,6 +40,7 @@ def informations():
     else:
         user = storage.get_user_by_id(user_id)
         return render_template("main/informations.html", user=user)
+    return render_template("main/informations.html")
 
 
 @app.route('/dashboard')
