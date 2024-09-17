@@ -34,9 +34,8 @@ def informations():
             country=request.form.get('address'),
             city=request.form.get('city'),
         )
-        return render_template("main/home.html")
-    else:
-        return render_template("main/info.html")
+        return redirect(url_for('home'))
+    return render_template("main/informations.html")
 
 
 @app.route('/dashboard')
