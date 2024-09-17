@@ -1,5 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+
+from models import storage
 from models.basemodel import Base
 from models.User import User
 from models.School import School
@@ -79,6 +81,14 @@ class Storage:
         new_user.save()
 
     def update_user_profile(self, id, username, email, password, country, city, job_title="", small_bio="", location="", exp=1,  profile_pic="", github_url="", facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
-        new_user = User(id=id, username=username, email=email, password=password, job_title=job_title, country=country, city=city, Exp=exp)
-        new_user.save()
+        user = self.get_user_by_id(id)
+        if user:
+            user.username = username
+            user.email = email
+            user.password = password
+            user.job_title = job_title
+            user.country = country
+            user.city = city
+            user.Exp = exp
+        self.__session.commit()
 
