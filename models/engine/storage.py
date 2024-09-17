@@ -74,11 +74,14 @@ class Storage:
             users.append(obj)
         return users
 
-    def create_user_profile(self, username, email, password, country, city, job_title="", small_bio="", location="", exp=1,  profile_pic="", github_url="", facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
-        new_user = User(username=username, email=email, password=password, job_title=job_title, country=country, city=city, Exp=exp)
+    def create_user_profile(self, username, email, password, country):
+        new_user = User(username=username, email=email, password=password, country=country)
         new_user.save()
+        return new_user
 
-    def update_user_profile(self, id, username, email, password, country, city, job_title="", small_bio="", location="", exp=1,  profile_pic="", github_url="", facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
+    def update_user_profile(self, id, username, email, password, country, city, job_title="",
+                            small_bio="", location="", exp=1,  profile_pic="", github_url="",
+                            facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
         user = self.get_user_by_id(id)
         if user:
             user.username = username
@@ -88,5 +91,16 @@ class Storage:
             user.country = country
             user.city = city
             user.Exp = exp
-        self.__session.commit()
+            user.small_bio = small_bio if small_bio else ""
+            user.location = location
+            user.profile_pic = profile_pic
+            user.github_url = github_url
+            user.facebook_url = facebook_url
+            user.linkedln = linkedln
+            user.medium_url = medium_url
+            user.pro_mail = pro_mail
+            user.stackoverflow = stackoverflow
+
+            self.__session.commit()
+            self.__session.close()
 

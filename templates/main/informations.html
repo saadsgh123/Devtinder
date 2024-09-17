@@ -20,11 +20,11 @@
             </div>
             <div class="form-group">
                 <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="last-name" required>
+                <input type="text" id="last-name" name="last-name" required >
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required value="{% if user %} {{ user.email }} {% endif %}">
             </div>
             <div class="form-group">
                 <label for="job-title">Job Title</label>
@@ -48,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label for="city">City</label>
-                <input type="text" id="city" name="city">
+                <input type="text" id="city" name="city" value="{% if user %} {{ user.city }} {% endif %}">
             </div>
             <div class="form-group">
                 <label for="portfolio">Portfolio Link</label>

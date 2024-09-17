@@ -1,11 +1,14 @@
 from re import search
 
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
+from sqlalchemy.sql.functions import current_user
 
 from models import storage
 
 app = Flask(__name__)
 from models import storage
+
+app.secret_key = 'your_secret_key'
 
 
 @app.route('/')
@@ -20,34 +23,33 @@ def login():
 
 @app.route('/register')
 def register():
+    if request.method == "POST":
+        username = request.form['username']
+        country = request.form['country']
+        email = request.form['email']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        if password == confirm_password:
+            new_user = storage.create_user_profile(username, country, email, password)
+            session['user_id'] = new_user.id
+            return redirect(url_for('informations'))
     return render_template("auth/register.html")
 
 
-@app.route('/informations', methods=['GET', 'POST'])
+@app.route('/informations/', methods=['GET', 'POST'])
 def informations():
-    user_id = "123e4567-e89b-12d3-a456-426614174001"
-    username = request.form.get('first-name'),
-    email = request.form.get('email'),
-    password = request.form.get('last-name'),
-    job_title = request.form.get('job-title'),
-    country = request.form.get('address'),
-    city = request.form.get('city'),
-    if user_id == "":
-        if request.method == "POST":
-            storage.create_user_profile(
-                username=username,
-                email=email,
-                password=password,
-                job_title=job_title,
-                country=country,
-                city=city,
-            )
-            return redirect(url_for('home'))
-    else:
-        user = storage.get_user_by_id(user_id)
-
-        return render_template("main/informations.html", user=user)
-    return render_template("main/informations.html")
+    user_id = session.get('user_id')
+    curr_user = storage.get_user_profile(user_id)
+    if request.method == 'POST':
+        firstname = request.form.get('first-name')
+        lastname = request.form.get('last-name')
+        job_title = request.form.get('job-title')
+        city = request.form.get('city')
+        phone = request.form.get('phone')
+        address = request.form.get('address')
+        postal_code = request.form.get('postal-code')
+        storage.update_user_profile(id=user_id, job_title=job_title, city=city)
+    return render_template("main/informations.html", user=curr_user)
 
 
 @app.route('/dashboard')
@@ -98,4 +100,3 @@ def feed():
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
-
