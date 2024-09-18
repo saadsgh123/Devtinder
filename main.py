@@ -76,6 +76,7 @@ def home():
                 return redirect(url_for('home'))
     else:
         return redirect(url_for('login'))
+    return render_template("main/home.html")
 
 
 @app.route("/feed", methods=['GET', 'POST'])
