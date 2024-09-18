@@ -18,10 +18,10 @@
         <input type="file" id="file-upload" class="upload-input" accept="image/*">
 
         <label for="firstname">First name:</label>
-        <input type="text" id="firstname" name="firstname" placeholder="First name">
+        <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if user %} {{ user.firstname }} {% endif %}" required>
 
         <label for="lastname">Last name:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Last name">
+        <input type="text" id="lastname" name="lastname" placeholder="Last name" value="{% if user %} {{ user.lastname }} {% endif %}" required>
 
         </fieldset>
 
@@ -38,23 +38,23 @@
 
         <label for="country">Country:</label>
         <select id="country" name="country" required>
-           <option value="country">Loading countries...</option>
+           <option value="">Loading countries...</option>
         </select>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="City">
+        <input type="text" id="city" name="city" placeholder="City" value="{% if user %} {{ user.city }} {% endif %}" required>
 
         <label for="bio">Bio:</label>
-        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100"></textarea>
+        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100">{% if user %} {{ user.bio }} {% endif %}</textarea>
 
         <label for="small_bio">Small Bio:</label>
-        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100"></textarea>
+        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100">{% if user %} {{ user.small_bio }} {% endif %}</textarea>
 
         <label for="location">Location:</label>
         <select name="location" id="location">
-          <option value="FullStack">Onsite </option>
-          <option value="FrontEnd">Hybrid </option>
-          <option value="BackEnd">Remotely</option>
+          <option value="Onsite">Onsite </option>
+          <option value="Hybrid">Hybrid </option>
+          <option value="Remotely">Remotely</option>
         </select>
 
         </fieldset>
@@ -63,19 +63,19 @@
             <legend>Social presence</legend>
 
         <label for="github_url">GitHub URL:</label>
-        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL">
+        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL" value="{% if user %} {{ user.github_url }} {% endif %}">
 
         <label for="facebook_url">Facebook URL:</label>
-        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL">
+        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL" value="{% if user %} {{ user.facebook_url }} {% endif %}">
 
         <label for="linkedln">LinkedIn URL:</label>
-        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL">
+        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL" value="{% if user %} {{ user.linkedln }} {% endif %}">
 
         <label for="stackoverflow">Stack Overflow URL:</label>
-        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL">
+        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL" value="{% if user %} {{ user.stackoverflow }} {% endif %}">
 
         <label for="medium_url">Medium URL:</label>
-        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL">
+        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL" value="{% if user %} {{ user.medium_url }} {% endif %}">
 
         </fieldset>
 

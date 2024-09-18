@@ -8,6 +8,8 @@ class User(BaseModel, Base):
     username = Column(String(20), unique=True, nullable=False)
     email = Column(String(50), unique=True, nullable=False)
     password = Column(String(50), nullable=False)
+    firstname = Column(String(50))
+    lastname = Column(String(50))
     job_title = Column(String(50))
     country = Column(String(50), nullable=False)
     city = Column(String(50))

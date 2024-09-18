@@ -29,13 +29,11 @@ def login():
 def register():
     if request.method == "POST":
         username = request.form.get('username')
-        country = request.form.get('country')
         email = request.form.get('email')
         password = request.form.get('password')
         confirm_password = request.form.get('confirm_password')
         if password == confirm_password:
-            new_user = storage.create_user_profile(username=username, country=country,
-                                                   email=email, password=password)
+            new_user = storage.create_user_profile(username=username, email=email, password=password)
             session['user_id'] = new_user.id
             return redirect(url_for('informations'))
     return render_template("auth/register.html")
@@ -50,11 +48,17 @@ def informations():
         lastname = request.form.get('last-name')
         job_title = request.form.get('job-title')
         city = request.form.get('city')
-        phone = request.form.get('phone')
-        address = request.form.get('address')
-        postal_code = request.form.get('postal-code')
-        storage.update_user_profile(id=user_id, job_title=job_title, city=city)
-    return render_template("main/informations.html", user=curr_user, user_id = user_id)
+        bio = request.form.get("bio")
+        small_bio = request.form.get("small_bio")
+        github_url = request.form.get("small_bio")
+        facebook_url = request.form.get("facebook_url")
+        linkedln = request.form.get("linkedln")
+        stackoverflow = request.form.get("stackoverflow")
+        medium_url = request.form.get("medium_url")
+        storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
+                                    lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url, facebook_url=facebook_url, linkedln=linkedln,
+                                    stackoverflow=stackoverflow, medium_url=medium_url)
+    return render_template("main/informations.html", user=curr_user, user_id=user_id)
 
 
 @app.route('/dashboard')
