@@ -55,6 +55,7 @@ def informations():
 
 @app.route('/dashboard')
 def dashboard():
+
     return render_template("main/dashboard.html")
 
 
@@ -65,12 +66,15 @@ def messages():
 
 @app.route("/home", methods=['GET', 'POST'])
 def home():
-    if request.method == 'POST':
-        search = request.form['search'].split()
-        if search:
-            return redirect(url_for('feed', search=search))
-        else:
-            return redirect(url_for('home'))
+    if session.get('user_id'):
+        if request.method == 'POST':
+            search = request.form['search'].split()
+            if search:
+                return redirect(url_for('feed', search=search))
+            else:
+                return redirect(url_for('home'))
+    else:
+        return redirect(url_for('login'))
     return render_template("main/home.html")
 
 
