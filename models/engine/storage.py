@@ -79,7 +79,7 @@ class Storage:
         new_user.save()
         return new_user
 
-    def update_user_profile(self, id, username, email, password, country="", city="", firstname="", lastname="", job_title="",
+    def update_user_profile(self, id, username, email, password, country="", city="", firstname="", lastname="", job_title="", bio="",
                             small_bio="", location="", exp=1,  profile_pic="", github_url="",
                             facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
         user = self.get_user_by_id(id)
@@ -93,6 +93,7 @@ class Storage:
             user.firstname = firstname
             user.lastname = lastname
             user.Exp = exp
+            user.bio = bio
             user.small_bio = small_bio if small_bio else ""
             user.location = location
             user.profile_pic = profile_pic
