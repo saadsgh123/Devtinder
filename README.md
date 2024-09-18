@@ -48,10 +48,15 @@ We opted for **Bootstrap** in combination with **custom CSS** to handle the layo
 
 Here's a look at DevTinder in action!
 
+## HomePage
 ![Homepage](static/images/HOME.png)
 
+
+## DEVELOPPER Profile
 ![Developer Profile](static/images/profile.png)
 
+
+## Developer's Dashboard
 ![Developer's dashboard](static/images/Dashnoard.png)
 
 ## Next Iterations and Future Plans
