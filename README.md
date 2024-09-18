@@ -66,7 +66,7 @@ We have a lot of ideas for the next iteration of DevTinder. Some features we pla
 
 ## Our LinkedIn Profiles
 - **Zouhair**: [Zouhair Bajdouri](https://www.linkedin.com/in/zouhair-bajdouri-5a33a5280/)
-- **Saad**: *(LinkedIn link to be added)*
+- **Saad**: [SGHOURI Saad](https://www.linkedin.com/in/saad-sghouri-04a752180/)
 - **Badr**: *(LinkedIn link to be added)*
 
 ## Installation
