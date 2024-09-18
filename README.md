@@ -62,7 +62,7 @@ We have a lot of ideas for the next iteration of DevTinder. Some features we pla
 [DevTinder](http://zoubjd.tech)
 
 ## Blog Link
-[Medium Blog](https://medium.com/...)
+[Medium Blog](https://medium.com/@easyasway123/introducing-devtinder-a-developer-recruitment-platform-265df3b45911)
 
 ## Our LinkedIn Profiles
 - **Zouhair**: [Zouhair Bajdouri](https://www.linkedin.com/in/zouhair-bajdouri-5a33a5280/)
@@ -111,9 +111,6 @@ The most closely related projects are:
 [Tinder](https://tinder.com/)
 
 These platforms inspired the concept behind DevTinder, combining professional networking with easy-to-use portfolio creation.
-
-## licensing
-??
 
 ## Final Thoughts
 
