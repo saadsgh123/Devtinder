@@ -13,11 +13,15 @@ app.secret_key = 'your_secret_key'
 
 @app.route('/')
 def landing_page():
+    if session.get('user_id'):
+        return redirect(url_for('home'))
     return render_template("auth/landing_page.html", title='Dev Tinder - Find Your Ideal Tech Talent')
 
 
 @app.route('/login')
 def login():
+    if session.get('user_id'):
+        return redirect(url_for('home'))
     return render_template("auth/login.html")
 
 
@@ -55,7 +59,6 @@ def informations():
 
 @app.route('/dashboard')
 def dashboard():
-
     return render_template("main/dashboard.html")
 
 
