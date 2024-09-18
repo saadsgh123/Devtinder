@@ -67,6 +67,7 @@ def messages():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if session.get('user_id'):
+        print(session.get('user_id'))
         if request.method == 'POST':
             search = request.form['search'].split()
             if search:
