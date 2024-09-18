@@ -44,8 +44,8 @@ def informations():
     user_id = session.get('user_id')
     curr_user = storage.get_user_by_id(user_id)
     if request.method == 'POST':
-        firstname = request.form.get('first-name')
-        lastname = request.form.get('last-name')
+        firstname = request.form.get('firstname')
+        lastname = request.form.get('lastname')
         job_title = request.form.get('job-title')
         city = request.form.get('city')
         bio = request.form.get("bio")
