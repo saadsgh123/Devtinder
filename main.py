@@ -112,5 +112,16 @@ def feed():
     return render_template("main/feed.html", users=users)
 
 
+@app.route('/user-exit', methods=['POST'])
+def user_exit():
+    # Handle user exiting (log out the user, store activity, etc.)
+    if 'user_id' in session:
+        user_id = session['user_id']
+        # Do something, such as logging the exit or removing user session
+        print(f"User {user_id} has left the website.")
+        session.pop('user_id', None)  # Clear session if needed
+    return '', 204  # Return no content
+
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080, debug=True)
