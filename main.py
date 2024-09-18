@@ -58,6 +58,7 @@ def informations():
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
                                     lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url, facebook_url=facebook_url, linkedln=linkedln,
                                     stackoverflow=stackoverflow, medium_url=medium_url)
+        return redirect(url_for('home'))
     return render_template("main/informations.html", user=curr_user, user_id=user_id)
 
 
