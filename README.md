@@ -112,9 +112,6 @@ The most closely related projects are:
 
 These platforms inspired the concept behind DevTinder, combining professional networking with easy-to-use portfolio creation.
 
-## licensing
-??
-
 ## Final Thoughts
 
 DevTinder represents our growth as developers, both in technical skills and teamwork. We've learned that building a project is as much about overcoming challenges as it is about writing code. We hope that as you explore DevTinder, you'll not only see a functional application but also the creativity and passion that went into building it.
