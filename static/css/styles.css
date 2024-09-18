@@ -72,11 +72,12 @@
     background-color: #F9FAFB;
 }
 
-.profile-image {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+.image-placeholder {
+    width: 100px; /* Adjust the size as needed */
+    height: 100px; /* Adjust the size as needed */
     object-fit: cover;
+    border-radius: 50%; /* Optional: makes the placeholder circular */
+    margin-bottom: 15px;
 }
 
 .profile-info {
