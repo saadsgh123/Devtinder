@@ -11,7 +11,7 @@ class User(BaseModel, Base):
     firstname = Column(String(50))
     lastname = Column(String(50))
     job_title = Column(String(50))
-    country = Column(String(50), nullable=False)
+    country = Column(String(50))
     city = Column(String(50))
     bio = Column(String(100))
     small_bio = Column(String(100))
