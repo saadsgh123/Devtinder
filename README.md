@@ -48,11 +48,11 @@ We opted for **Bootstrap** in combination with **custom CSS** to handle the layo
 
 Here's a look at DevTinder in action!
 
-![Homepage](path/to/homepage.png) ta tzid a saad tsawer hna if you could me design ghaliban wla ta mn site live labghiti
+![Homepage](static/images/HOME.png)
 
-![Developer Profile](path/to/developer_profile.png)
+![Developer Profile](static/images/profile.png)
 
-![Project Entry Form](path/to/project_form.png)
+![Developer's dashboard](static/images/Dashnoard.png)
 
 ## Next Iterations and Future Plans
 
@@ -67,7 +67,7 @@ We have a lot of ideas for the next iteration of DevTinder. Some features we pla
 ## Our LinkedIn Profiles
 - **Zouhair**: [Zouhair Bajdouri](https://www.linkedin.com/in/zouhair-bajdouri-5a33a5280/)
 - **Saad**: [SGHOURI Saad](https://www.linkedin.com/in/saad-sghouri-04a752180/)
-- **Badr**: *(LinkedIn link to be added)*
+- **Badr**: [Badr Bouzagui](https://www.linkedin.com/in/badr-bouzagui-23aa41265/)
 
 ## Installation
 
