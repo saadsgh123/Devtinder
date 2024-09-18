@@ -36,12 +36,14 @@ nav a {
 }
 
 .profile-circle {
-    width: 30px;
-    height: 30px;
-    background-color: gray;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     vertical-align: middle;
-    margin-left: 50px;
+    margin-left: 20px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
 main {
@@ -126,3 +128,72 @@ h2 {
     font-weight: 400;
     font-style: normal;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Circle with three dots */
+.circle {
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.logo {
+    width: 35px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+/* Styling the three dots */
+.dot {
+    width: 5px;
+    height: 5px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+}
+
+/* Dropdown menu content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    z-index: 1;
+    right: 0; /* Align dropdown to the right of the circle */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change background color on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Show the dropdown when the "show" class is added */
+.show {
+    display: block;
+}
+

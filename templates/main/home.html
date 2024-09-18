@@ -12,12 +12,24 @@
 <body>
 
 <header>
-  <div class="logo">LOGO</div>
+  <img class="logo" src="/static/images/logo.png" alt="Profile">
   <nav>
-    <a href="{{ url_for('home') }}">HOME</a>
-    <a href="{{ url_for('feed', search=search) }}">FEED</a>
-    <a href="{{ url_for('dashboard') }}">DASHBOARD</a>
-    <img class="profile-circle" src="/static/images/img.png" alt="Profile">
+    <div class="dropdown">
+      <!-- Circle with three dots -->
+      <div class="circle" onclick="toggleDropdown()">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- Dropdown menu content -->
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Projects</a>
+      </div>
+    </div>
+    <img class="profile-circle" src="/static/images/saad.png" alt="Profile">
   </nav>
 </header>
 
@@ -29,6 +41,26 @@
     <button type="submit">Search</button>
   </form>
 </main>
+
+<script>
+  // Function to toggle the dropdown menu
+  function toggleDropdown() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Close the dropdown if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.circle')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+</script>
 
 </body>
 </html>

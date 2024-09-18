@@ -10,12 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
 </head>
 <header>
-  <div class="logo">LOGO</div>
+  <img src="/static/images/logo.png" class="logo" alt="">
   <nav>
-    <a href="{{ url_for('home') }}">HOME</a>
-    <a href="">DASHBOARD</a>
-    <a href="">CONTACT US</a>
-    <img src="/static/images/img.png" class="profile-circle" alt="">
+    <div class="dropdown">
+      <!-- Circle with three dots -->
+      <div class="circle" onclick="toggleDropdown()">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+
+      <!-- Dropdown menu content -->
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">Profile</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Projects</a>
+      </div>
+    </div>
+    <img src="/static/images/saad.png" class="profile-circle" alt="">
   </nav>
 </header>
 
