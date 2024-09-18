@@ -18,10 +18,10 @@
         <input type="file" id="file-upload" class="upload-input" accept="image/*">
 
         <label for="firstname">First name:</label>
-        <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if user %} {{ user.firstname }} {% endif %}" required>
+        <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if user.firstname %} {{ user.firstname }} {% endif %}" required>
 
         <label for="lastname">Last name:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Last name" value="{% if user %} {{ user.lastname }} {% endif %}" required>
+        <input type="text" id="lastname" name="lastname" placeholder="Last name" value="{% if user.lastname %} {{ user.lastname }} {% endif %}" required>
 
         </fieldset>
 
@@ -42,13 +42,13 @@
         </select>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="City" value="{% if user %} {{ user.city }} {% endif %}" required>
+        <input type="text" id="city" name="city" placeholder="City" value="{% if user.city %} {{ user.city }} {% endif %}" required>
 
         <label for="bio">Bio:</label>
-        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100">{% if user %} {{ user.bio }} {% endif %}</textarea>
+        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100">{% if user.bio %} {{ user.bio }} {% endif %}</textarea>
 
         <label for="small_bio">Small Bio:</label>
-        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100">{% if user %} {{ user.small_bio }} {% endif %}</textarea>
+        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100">{% if user.small_bio %} {{ user.small_bio }} {% endif %}</textarea>
 
         <label for="location">Location:</label>
         <select name="location" id="location">
