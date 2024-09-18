@@ -74,8 +74,8 @@ class Storage:
             users.append(obj)
         return users
 
-    def create_user_profile(self, username, email, password, country):
-        new_user = User(username=username, email=email, password=password, country=country)
+    def create_user_profile(self, username, email, password):
+        new_user = User(username=username, email=email, password=password)
         new_user.save()
         return new_user
 
@@ -90,6 +90,8 @@ class Storage:
             user.job_title = job_title
             user.country = country
             user.city = city
+            user.firstname = firstname
+            user.lastname = lastname
             user.Exp = exp
             user.small_bio = small_bio if small_bio else ""
             user.location = location
