@@ -50,7 +50,7 @@ def informations():
         address = request.form.get('address')
         postal_code = request.form.get('postal-code')
         storage.update_user_profile(id=user_id, job_title=job_title, city=city)
-    return render_template("main/informations.html", user=curr_user)
+    return render_template("main/informations.html", user=curr_user, user_id = user_id)
 
 
 @app.route('/dashboard')
