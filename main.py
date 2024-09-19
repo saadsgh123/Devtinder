@@ -129,7 +129,7 @@ def feed():
 def userpage(username, user_id):
     user = storage.get_user_by_id(user_id)
     if user:
-        return redirect(url_for('userpage', user=user))
+        return redirect(url_for('userpage',username=username, user_id=user_id, user=user))
     return render_template("main/user_page.html")
 
 
