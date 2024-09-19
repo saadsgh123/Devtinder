@@ -127,7 +127,7 @@ def feed():
 
 @app.route('/userpage/<username>')
 def userpage(username):
-    user = storage.get_user_by_id(username)
+    user = storage.get_user_by_username(username)
     return render_template("main/user_page.html", user=user)
 
 
