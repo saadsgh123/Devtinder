@@ -128,9 +128,9 @@ def feed():
 @app.route('/userpage/<username>/<user_id>')
 def userpage(username, user_id):
     user = storage.get_user_by_id(user_id)
-    if user is None:
-        return redirect(url_for('404'))
-    return render_template("main/user_page.html", user=user)
+    if user:
+        return redirect(url_for('userpage', user=user))
+    return render_template("main/user_page.html")
 
 
 @app.route('/404')
