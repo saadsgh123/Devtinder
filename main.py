@@ -18,10 +18,20 @@ def landing_page():
     return render_template("auth/landing_page.html", title='Dev Tinder - Find Your Ideal Tech Talent')
 
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
     if session.get('user_id'):
         return redirect(url_for('home'))
+    if request.method == 'GET':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        user = storage.get_user_by_email(email)
+        if user is not None:
+            if user.password == password:
+                return redirect(url_for('home'))
+        else:
+            flash('Invalid email or password')
+
     return render_template("auth/login.html")
 
 
