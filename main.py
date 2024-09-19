@@ -28,12 +28,12 @@ def login():
         user = storage.get_user_by_email(email)
         if user is not None:
             if user.password == password:
+                session['user_id'] = user.id
                 return redirect(url_for('home'))
             else:
                 flash('Invalid email or password', 'error')
         else:
             flash('Invalid email or password', 'error')
-
     return render_template("auth/login.html")
 
 
