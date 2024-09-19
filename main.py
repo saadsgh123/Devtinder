@@ -126,6 +126,7 @@ def feed():
 
 
 @app.route('/userpage/<username>/<user_id>')
+@app.route('/userpage')
 def userpage(username, user_id):
     user = storage.get_user_by_id(user_id)
     if user is None:
