@@ -98,6 +98,8 @@ class Storage:
             user.small_bio = small_bio if small_bio else ""
             user.location = location
             user.profile_pic = profile_pic
+            # to change attention
+            # user.twitter_url = github_url
             user.github_url = github_url
             user.facebook_url = facebook_url
             user.linkedln = linkedln

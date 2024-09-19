@@ -22,9 +22,8 @@
             <div class="image">
                 <div class="paragraph">
                     <h2>Hi There, I'm {{ user.username }} 👋</h2>
-                    <p>A passionate {{ user.specialization}} 🚀 having an experience of building
-                        web with {{ user.skillls | join(' / ')}} and some other cool
-                        libraries and frameworks.
+                    <p>
+                        {{ user.bio }}
                     </p>
                 </div>
                 <div class="profile-container">
@@ -87,13 +86,13 @@
         <div class="footer-image">
             <div class="paragraph">
                 <h4 id="contact">Contact Me 👋</h4>
-                <p>Feel free to reach out if you'd like to collaborate on a project or just have a chat!<br>
-                    You can connect with me via email or any of my social media profiles below.<br>
-                    Looking forward to hearing from you!</p>
+                <p>
+                    {{ user.bio }}
+                </p>
                 <div class="social-icons">
-                    <a href="{{ user.twitter }}" target="_blank"><img src="/static/images/v33_113.png"></a>
-                    <a href="{{ user.github }}" target="_blank"><img src="/static/images/v33_107.png"></a>
-                    <a href="{{ user.linkedin }}" target="_blank"><img src="/static/images/v33_111.png"></a>
+                    <a href="{{ user.twitter }}" target="{{ user.github_url }}"><img src="/static/images/v33_113.png"></a>
+                    <a href="{{ user.github }}" target="{{ user.github_url }}"><img src="/static/images/v33_107.png"></a>
+                    <a href="{{ user.linkedln }}" target="{{ user.linkedln }}"><img src="/static/images/v33_111.png"></a>
                 </div>
             </div>
             <div class="footer-profile">
