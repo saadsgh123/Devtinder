@@ -125,12 +125,9 @@ def feed():
     return render_template("main/feed.html", users=users)
 
 
-@app.route('/userpage/<username>/<user_id>')
-@app.route('/userpage')
-def userpage(username, user_id):
-    user = storage.get_user_by_id(user_id)
-    if user is None:
-        return render_template("404.html")  # or redirect to a custom 404 page if needed
+@app.route('/userpage/<username>')
+def userpage(username):
+    user = storage.get_user_by_id(username)
     return render_template("main/user_page.html", user=user)
 
 
