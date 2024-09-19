@@ -78,4 +78,20 @@ class Storage:
         new_user = User(username=username, email=email, password=password, job_title=job_title, country=country, city=city, Exp=exp)
         new_user.save()
 
+    def get_filtered_users(self, job_title=None, experience=None, location=None):
+        """Query users by job title, experience, and location with optional filters."""
+        query = self.__session.query(User)
+
+        # Apply filters conditionally
+        if job_title:
+            query = query.filter(User.job_title.like(f"%{job_title}%"))
+        if experience:
+            query = query.filter(User.experience == experience)
+        if location:
+            query = query.filter(User.location.like(f"%{location}%"))
+
+        # Execute query and return list of users
+        users = query.all()
+        return users
+
 
