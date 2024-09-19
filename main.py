@@ -29,6 +29,8 @@ def login():
         if user is not None:
             if user.password == password:
                 return redirect(url_for('home'))
+            else:
+                flash('Invalid email or password', 'error')
         else:
             flash('Invalid email or password', 'error')
 
