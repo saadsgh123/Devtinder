@@ -102,29 +102,59 @@ def home():
     return render_template("main/home.html")
 
 
+from flask import jsonify
+
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
     users = []
+    
+    # Handle POST requests (search via form submission)
     if request.method == "POST":
         search = request.form.get("search").strip()
         if search:
             users = storage.get_users_by_job_title(search)
-            # Check if users is empty, not None
             if not users:
                 flash("No users found", category="error-message")
         else:
             flash("Search field cannot be empty!", "error-message")
-    else:
-        if request.method == "GET":
-            url_search = request.args.get("search")
-            if url_search:
-                url_search = url_search.strip()
-                users = storage.get_users_by_job_title(url_search)
-                if not users:
-                    flash("No users found", category="error-message")
-            else:
-                return redirect(url_for('home'))
+
+    # Handle AJAX GET requests (filtering without page reload)
+    if request.method == "GET" and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        url_search = request.args.get("search")
+        experience = request.args.get("experience")
+        location = request.args.get("location")
+
+        # Filter logic based on received parameters
+        if url_search or experience or location:
+            users = storage.get_filtered_users(url_search, experience, location)
+        else:
+            users = storage.get_all_users()
+
+        # Construct a JSON response for the filtered users
+        users_json = [
+            {
+                'username': user.username,
+                'job_title': user.job_title,
+                'freelancer': user.freelancer,
+                'technologies': user.technologies,
+                'description': user.description
+            } for user in users
+        ]
+        return jsonify({'users': users_json})
+
+    # Fallback for normal GET requests (without AJAX)
+    elif request.method == "GET":
+        url_search = request.args.get("search")
+        if url_search:
+            url_search = url_search.strip()
+            users = storage.get_users_by_job_title(url_search)
+            if not users:
+                flash("No users found", category="error-message")
+        else:
+            return redirect(url_for('home'))
+    
     return render_template("main/feed.html", users=users)
+
 
 
 if __name__ == "__main__":
