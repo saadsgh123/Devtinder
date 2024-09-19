@@ -30,7 +30,7 @@ def login():
             if user.password == password:
                 return redirect(url_for('home'))
         else:
-            flash('Invalid email or password')
+            flash('Invalid email or password', 'error')
 
     return render_template("auth/login.html")
 

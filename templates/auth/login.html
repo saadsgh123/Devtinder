@@ -15,6 +15,13 @@
 
             <input type="email" placeholder="Email" name="email" id="email" required>
             <input type="password" placeholder="Password" name="password" id="password" required>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="error">
+                        <p class="{{ messages[-1][0] }}">{{ messages[-1][1] }}</p>
+                    </div>
+                {% endif %}
+            {% endwith %}
 
             <label>
                 <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
