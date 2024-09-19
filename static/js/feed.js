@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.querySelector('.search-bar input');
   
     searchButton.addEventListener('click', function(event) {
-      event.preventDefault(); // Prevent form submission
+      //event.preventDefault(); // Prevent form submission
   
       // Fetch data based on selected filters and search query
       fetchData();
