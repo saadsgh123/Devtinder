@@ -22,7 +22,7 @@ def landing_page():
 def login():
     if session.get('user_id'):
         return redirect(url_for('home'))
-    if request.method == 'GET':
+    if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
         user = storage.get_user_by_email(email)
