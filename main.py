@@ -1,3 +1,4 @@
+from os import abort
 from re import search
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session
@@ -128,6 +129,8 @@ def feed():
 @app.route('/userpage/<username>')
 def userpage(username):
     user = storage.get_user_by_username(username)
+    if user is None:
+        redirect(url_for('not_found'))
     return render_template("main/user_page.html", user=user)
 
 
