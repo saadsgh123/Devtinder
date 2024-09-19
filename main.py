@@ -112,7 +112,7 @@ def feed():
     return render_template("main/feed.html", users=users)
 
 
-@app.route('userpage')
+@app.route('/userpage')
 def userpage():
     return render_template("main/user_page.html")
 
