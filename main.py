@@ -68,7 +68,8 @@ def informations():
         stackoverflow = request.form.get("stackoverflow")
         medium_url = request.form.get("medium_url")
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
-                                    lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url, facebook_url=facebook_url, linkedln=linkedln,
+                                    lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
+                                    facebook_url=facebook_url, linkedln=linkedln,
                                     stackoverflow=stackoverflow, medium_url=medium_url)
         return redirect(url_for('home'))
     return render_template("main/informations.html", user=curr_user, user_id=user_id)
@@ -124,9 +125,17 @@ def feed():
     return render_template("main/feed.html", users=users)
 
 
-@app.route('/userpage')
-def userpage():
-    return render_template("main/user_page.html")
+@app.route('/userpage/<username>/user_id')
+def userpage(username, user_id):
+    user = storage.get_user_by_id(user_id)
+    if user is None:
+        return redirect(url_for('404'))
+    return render_template("main/user_page.html", user=user)
+
+
+@app.route('/404')
+def not_found():
+    return """ <p> user not found </p>"""
 
 
 @app.route('/user-exit', methods=['POST'])

@@ -122,7 +122,7 @@
                       bio
                   </p>
           {% endif %}
-          <button class="view-profile">view profile</button>
+          <button class="view-profile" onclick="window.location.href = '/userpage/{{ user.username }}/{{ user.id }}'">view profile</button>
         </div>
          {% endif %}
       {% endfor %}
