@@ -112,6 +112,11 @@ def feed():
     return render_template("main/feed.html", users=users)
 
 
+@app.route('userpage')
+def userpage():
+    return render_template("main/user_page.html")
+
+
 @app.route('/user-exit', methods=['POST'])
 def user_exit():
     # Handle user exiting (log out the user, store activity, etc.)
