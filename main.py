@@ -76,7 +76,7 @@ def informations():
         medium_url = request.form.get("medium_url")
 
         # Handle the file upload
-        if 'profile_picture' in request.files:
+        if 'file-upload' in request.files:
             file = request.files['file-upload']
 
             # Check if the file is allowed (is a valid image)
