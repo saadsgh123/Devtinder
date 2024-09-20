@@ -77,7 +77,7 @@ def informations():
 
         # Handle the file upload
         if 'file-upload' in request.files:
-            file = request.form.get('file-upload')
+            file = request.files['file-upload']
 
             # Check if the file is allowed (is a valid image)
             if file and allowed_file(file.filename):
