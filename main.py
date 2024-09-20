@@ -76,20 +76,17 @@ def informations():
         medium_url = request.form.get("medium_url")
 
         # Handle the file upload
-        if 'file-upload' in request.files:
-            file = request.files['file-upload']
-            print("Filename: ", file.filename)
+        file = request.files['file-upload']
+        # Check if the file is allowed (is a valid image)
+        if file and allowed_file(file.filename):
+            # Ensure filename is secure
+            filename = secure_filename(file.filename)
 
-            # Check if the file is allowed (is a valid image)
-            if file and allowed_file(file.filename):
-                # Ensure filename is secure
-                filename = secure_filename(file.filename)
+            # Save the file in the upload folder
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
-                # Save the file in the upload folder
-                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-                # You can save the filename or file path to the user's profile
-                storage.update_user_profile(id=user_id, profile_pic=filename)
+            # You can save the filename or file path to the user's profile
+            storage.update_user_profile(id=user_id, profile_pic=filename)
 
         # Update user information
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
