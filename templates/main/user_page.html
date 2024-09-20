@@ -27,7 +27,7 @@
                     </p>
                 </div>
                 <div class="profile-container">
-                    <img src="{{ user.profile_image }}" id="profileImage" class="profile-image">
+                    <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="profile-image">
                 </div>
             </div>
         </section>
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="footer-profile">
-                <img src="{{ user.profile_image }}" id="profileImage" class="profile-image">
+                <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="profile-image">
             </div>
         </div>
     </footer>

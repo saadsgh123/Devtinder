@@ -104,7 +104,7 @@
       {% for user in users %}
           {% if user.username %}
         <div class="profile-card">
-          <img src="/static/images/saad.png" alt="Image Placeholder" class="image-placeholder">
+          <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="image-placeholder">
           <h3>{{ user.username }}</h3>
           <p class="job-title">{{ user.job_title }}</p>
           <p class="freelancer">Freelancer</p>

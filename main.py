@@ -1,15 +1,19 @@
+import os
 from os import abort
 from re import search
 
-from flask import Flask, render_template, request, redirect, url_for, flash, session
-from sqlalchemy.sql.functions import current_user
-
-from models import storage
+from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 from models import storage
 
 app.secret_key = 'your_secret_key'
+UPLOAD_FOLDER = '/uploads/'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# Allowed file extensions for upload
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 
 @app.route('/')
@@ -56,24 +60,54 @@ def register():
 def informations():
     user_id = session.get('user_id')
     curr_user = storage.get_user_by_id(user_id)
+
     if request.method == 'POST':
+        # Get other form data
         firstname = request.form.get('firstname')
         lastname = request.form.get('lastname')
         job_title = request.form.get('job-title')
         city = request.form.get('city')
         bio = request.form.get("bio")
         small_bio = request.form.get("small_bio")
-        github_url = request.form.get("small_bio")
+        github_url = request.form.get("github_url")
         facebook_url = request.form.get("facebook_url")
         linkedln = request.form.get("linkedln")
         stackoverflow = request.form.get("stackoverflow")
         medium_url = request.form.get("medium_url")
+
+        # Handle the file upload
+        if 'profile_picture' in request.files:
+            file = request.files['profile_picture']
+
+            # Check if the file is allowed (is a valid image)
+            if file and allowed_file(file.filename):
+                # Ensure filename is secure
+                filename = secure_filename(file.filename)
+
+                # Save the file in the upload folder
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+                # You can save the filename or file path to the user's profile
+                storage.update_user_profile(id=user_id, profile_picture=filename)
+
+        # Update user information
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
                                     lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
-                                    facebook_url=facebook_url, linkedln=linkedln,
-                                    stackoverflow=stackoverflow, medium_url=medium_url)
+                                    facebook_url=facebook_url, linkedln=linkedln, stackoverflow=stackoverflow,
+                                    medium_url=medium_url)
+
         return redirect(url_for('home'))
+
     return render_template("main/informations.html", user=curr_user, user_id=user_id)
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@app.route('/uploads/profile_pictures/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 
 @app.route('/dashboard')

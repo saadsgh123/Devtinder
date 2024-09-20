@@ -13,7 +13,7 @@
         <fieldset>
             <legend>Personal Information</legend>
 
-        <img src="/static/images/saad.png" alt="Image Placeholder" class="image-placeholder">
+        <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="image-placeholder">
         <label for="file-upload" class="upload-label">Choose a picture</label>
         <input type="file" id="file-upload" class="upload-input" accept="image/*">
 
@@ -63,19 +63,19 @@
             <legend>Social presence</legend>
 
         <label for="github_url">GitHub URL:</label>
-        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL" value="{% if user %} {{ user.github_url }} {% endif %}">
+        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL" value="{% if user.github_url %} {{ user.github_url }} {% endif %}">
 
         <label for="facebook_url">Facebook URL:</label>
-        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL" value="{% if user %} {{ user.facebook_url }} {% endif %}">
+        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL" value="{% if user.facebook_url %} {{ user.facebook_url }} {% endif %}">
 
         <label for="linkedln">LinkedIn URL:</label>
-        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL" value="{% if user %} {{ user.linkedln }} {% endif %}">
+        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL" value="{% if user.linkedln %} {{ user.linkedln }} {% endif %}">
 
         <label for="stackoverflow">Stack Overflow URL:</label>
-        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL" value="{% if user %} {{ user.stackoverflow }} {% endif %}">
+        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL" value="{% if user.stackoverflow %} {{ user.stackoverflow }} {% endif %}">
 
         <label for="medium_url">Medium URL:</label>
-        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL" value="{% if user %} {{ user.medium_url }} {% endif %}">
+        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL" value="{% if user.medium_url %} {{ user.medium_url }} {% endif %}">
 
         </fieldset>
 
