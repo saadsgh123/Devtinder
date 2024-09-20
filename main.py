@@ -9,7 +9,7 @@ app = Flask(__name__)
 from models import storage
 
 app.secret_key = 'your_secret_key'
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = './uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Allowed file extensions for upload
@@ -78,6 +78,7 @@ def informations():
         # Handle the file upload
         if 'file-upload' in request.files:
             file = request.files['file-upload']
+            print("Filename: ", file.filename)
 
             # Check if the file is allowed (is a valid image)
             if file and allowed_file(file.filename):
@@ -171,7 +172,7 @@ def userpage(username):
 
 @app.route('/404')
 def not_found():
-    return """ <p> user not found </p>"""
+    return """ <p> user not found </p> """
 
 
 @app.route('/user-exit', methods=['POST'])
