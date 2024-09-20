@@ -9,7 +9,7 @@ app = Flask(__name__)
 from models import storage
 
 app.secret_key = 'your_secret_key'
-UPLOAD_FOLDER = '/uploads/profile_pictures'
+UPLOAD_FOLDER = '/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Allowed file extensions for upload
