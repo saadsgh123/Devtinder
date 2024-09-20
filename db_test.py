@@ -7,7 +7,7 @@ if __name__ == '__main__':
     users = storage.all(User).values()
     print("return type =>", type(users))
     for user in users:
-        print(user.id, user.username, user.job_title, user.email, user.password)
+        print(user.id, user.username, user.job_title, user.email, user.password, user.profile_pic)
     print("=========== END =============")
     print("")
     print("=========== Get user by its ID =============")
