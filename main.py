@@ -77,7 +77,7 @@ def informations():
 
         # Handle the file upload
         if 'file-upload' in request.files:
-            file = request.files['file-upload']
+            file = request.form.get('file-upload')
 
             # Check if the file is allowed (is a valid image)
             if file and allowed_file(file.filename):
@@ -105,7 +105,7 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-@app.route('/uploads/profile_pictures/<filename>')
+@app.route('/uploads/<filename>')
 def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
