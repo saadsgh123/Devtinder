@@ -108,5 +108,4 @@ class Storage:
             user.stackoverflow = stackoverflow
 
             self.__session.commit()
-            self.__session.close()
 
