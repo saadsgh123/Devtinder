@@ -80,7 +80,8 @@ class Storage:
             users.append(obj)
         return users
 
-    def create_user_profile(self, username, email, password):
+    @staticmethod
+    def create_user_profile(username, email, password):
         new_user = User(username=username, email=email, password=password)
         new_user.save()
         return new_user

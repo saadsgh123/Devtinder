@@ -125,13 +125,13 @@ def messages():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if session.get('user_id'):
-        current_user = storage.get_user_by_id(session['user_id'])
+        curr_user = storage.get_user_by_id(session['user_id'])
         if request.method == 'POST':
             search = request.form['search'].split()
             if search:
-                return redirect(url_for('feed', search=search, user=current_user))
+                return redirect(url_for('feed', search=search, user=curr_user))
             else:
-                return redirect(url_for('home', user=current_user))
+                return redirect(url_for('home', user=curr_user))
     else:
         return redirect(url_for('login'))
     return render_template("main/home.html")
@@ -145,9 +145,9 @@ def feed():
         curr_user = storage.get_user_by_id(session['user_id'])
     users = []
     if request.method == "POST":
-        search = request.form.get("search").strip()
-        if search:
-            users = storage.get_users_by_job_title(search)
+        search_input = request.form.get("search").strip()
+        if search_input:
+            users = storage.get_users_by_job_title(search_input)
             # Check if users is empty, not None
             if not users:
                 flash("No users found", category="error-message")
