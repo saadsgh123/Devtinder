@@ -84,6 +84,7 @@ def informations():
         if file and allowed_file(file.filename):
             # Ensure filename is secure
             filename = secure_filename(file.filename)
+            print("Secure filename:", filename)
 
             # Save the file in the upload folder
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
@@ -183,6 +184,7 @@ def user_exit():
         # Do something, such as logging the exit or removing user session
         print(f"User {user_id} has left the website.")
         session.pop('user_id', None)  # Clear session if needed
+        return redirect('login')
     return '', 204  # Return no content
 
 

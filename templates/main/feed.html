@@ -22,9 +22,10 @@
 
       <!-- Dropdown menu content -->
       <div id="myDropdown" class="dropdown-content">
-        <a href="">Profile</a>
+        <a href="{{ urlfor('informations') }}">Profile</a>
         <a href="">Dashboard</a>
         <a href="">Projects</a>
+        <a href="{{ urlfor('user-exit') }}">Logout</a>
       </div>
     </div>
     <img src="/static/images/saad.png" class="profile-circle" alt="">

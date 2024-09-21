@@ -13,7 +13,7 @@
         <fieldset>
             <legend>Personal Information</legend>
 
-        <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="image-placeholder">
+        <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="image-placeholder">
         <label for="file-upload" class="upload-label">Choose a picture</label>
         <input type="file" id="file-upload" name="file-upload" class="upload-input" accept="image/*">
 

@@ -11,7 +11,7 @@
             <h1>{{ user.name }}</h1>
             <nav>
                 <ul class="nav-link">
-                    <li><a href="#skils">Skils</a></li>
+                    <li><a href="#skills">Skills</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact me</a></li>
@@ -27,11 +27,11 @@
                     </p>
                 </div>
                 <div class="profile-container">
-                    <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="profile-image">
+                    <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
                 </div>
             </div>
         </section>
-        <section id="skils" class="second">
+        <section id="skills" class="second">
             <div class="content">
                 <div class="binary-image">
                     <img src="../../static/images/binary.png" alt="Binary Image">
@@ -96,7 +96,7 @@
                 </div>
             </div>
             <div class="footer-profile">
-                <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="profile-image">
+                <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
             </div>
         </div>
     </footer>

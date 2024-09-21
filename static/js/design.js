@@ -29,11 +29,3 @@ window.onclick = function(event) {
         }
     }
 }
-
-window.addEventListener("beforeunload", function (event) {
-            // Send a POST request to the server when the user is leaving
-            navigator.sendBeacon("/user-exit");  // Uses sendBeacon to make a request when leaving
-
-            // Optionally, show a confirmation dialog (modern browsers don't allow full customization)
-            event.returnValue = ''; // Required for most browsers to trigger a prompt
-        });
