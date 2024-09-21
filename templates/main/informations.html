@@ -18,10 +18,10 @@
         <input type="file" id="file-upload" name="file-upload" value="{{ url_for('uploaded_file', filename=curr_user.profile_pic) }}"  class="upload-input" accept="image/*">
 
         <label for="firstname">First name:</label>
-        <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if user.firstname %} {{ user.firstname }} {% endif %}" required>
+        <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if curr_user.firstname %} {{ curr_user.firstname }} {% endif %}" required>
 
         <label for="lastname">Last name:</label>
-        <input type="text" id="lastname" name="lastname" placeholder="Last name" value="{% if user.lastname %} {{ user.lastname }} {% endif %}" required>
+        <input type="text" id="lastname" name="lastname" placeholder="Last name" value="{% if curr_user.lastname %} {{ curr_user.lastname }} {% endif %}" required>
 
         </fieldset>
 
@@ -42,13 +42,13 @@
         </select>
 
         <label for="city">City:</label>
-        <input type="text" id="city" name="city" placeholder="City" value="{% if user.city %} {{ user.city }} {% endif %}" required>
+        <input type="text" id="city" name="city" placeholder="City" value="{% if curr_user.city %} {{ curr_user.city }} {% endif %}" required>
 
         <label for="bio">Bio:</label>
-        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100">{% if user.bio %} {{ user.bio }} {% endif %}</textarea>
+        <textarea id="bio" name="bio" placeholder="Enter your bio" maxlength="100">{% if curr_user.bio %} {{ curr_user.bio }} {% endif %}</textarea>
 
         <label for="small_bio">Small Bio:</label>
-        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100">{% if user.small_bio %} {{ user.small_bio }} {% endif %}</textarea>
+        <textarea id="small_bio" name="small_bio" placeholder="Enter a short bio" maxlength="100">{% if curr_user.small_bio %} {{ curr_user.small_bio }} {% endif %}</textarea>
 
         <label for="location">Location:</label>
         <select name="location" id="location">
@@ -63,19 +63,19 @@
             <legend>Social presence</legend>
 
         <label for="github_url">GitHub URL:</label>
-        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL" value="{% if user.github_url %} {{ user.github_url }} {% endif %}">
+        <input type="url" id="github_url" name="github_url" placeholder="GitHub Profile URL" value="{% if curr_user.github_url %} {{ curr_user.github_url }} {% endif %}">
 
         <label for="facebook_url">Facebook URL:</label>
-        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL" value="{% if user.facebook_url %} {{ user.facebook_url }} {% endif %}">
+        <input type="url" id="facebook_url" name="facebook_url" placeholder="Facebook Profile URL" value="{% if curr_user.facebook_url %} {{ curr_user.facebook_url }} {% endif %}">
 
         <label for="linkedln">LinkedIn URL:</label>
-        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL" value="{% if user.linkedln %} {{ user.linkedln }} {% endif %}">
+        <input type="url" id="linkedln" name="linkedln" placeholder="LinkedIn Profile URL" value="{% if curr_user.linkedln %} {{ curr_user.linkedln }} {% endif %}">
 
         <label for="stackoverflow">Stack Overflow URL:</label>
-        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL" value="{% if user.stackoverflow %} {{ user.stackoverflow }} {% endif %}">
+        <input type="url" id="stackoverflow" name="stackoverflow" placeholder="Stack Overflow Profile URL" value="{% if curr_user.stackoverflow %} {{ curr_user.stackoverflow }} {% endif %}">
 
         <label for="medium_url">Medium URL:</label>
-        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL" value="{% if user.medium_url %} {{ user.medium_url }} {% endif %}">
+        <input type="url" id="medium_url" name="medium_url" placeholder="Medium Profile URL" value="{% if curr_user.medium_url %} {{ curr_user.medium_url }} {% endif %}">
 
         </fieldset>
 
