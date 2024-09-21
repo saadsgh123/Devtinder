@@ -27,14 +27,18 @@
                     </p>
                 </div>
                 <div class="profile-container">
-                    <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
+                    {% if user %}
+                        <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
+                    {% else %}
+                        <img src="/images/v33_99.png" alt="Profile Picture" class="profile-circle">
+                    {% endif %}
                 </div>
             </div>
         </section>
         <section id="skills" class="second">
             <div class="content">
                 <div class="binary-image">
-                    <img src="../../static/images/binary.png" alt="Binary Image">
+                    <img src="/static/images/binary.png" alt="Binary Image">
                 </div>
                 <div class="skils-section">
                     <h3>WHAT I MASTER</h3>

@@ -32,6 +32,8 @@
     </div>
     {% if user %}
         <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-circle">
+    {% else %}
+        <img src="/images/v33_99.png" alt="Profile Picture" class="profile-circle">
     {% endif %}
   </nav>
 </header>
