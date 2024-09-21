@@ -183,8 +183,10 @@ def user_exit():
         user_id = session['user_id']
         # Do something, such as logging the exit or removing user session
         print(f"User {user_id} has left the website.")
-        session.pop('user_id', None)  # Clear session if needed
-    return render_template("auth/login.html") # Return no content
+        session.pop('user_id', None)
+    else:
+        return redirect(url_for('login'))
+    return render_template("auth/login.html")
 
 
 if __name__ == "__main__":
