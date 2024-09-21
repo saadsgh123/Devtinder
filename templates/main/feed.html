@@ -10,9 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
 </head>
 <header>
-    {% if user %}
-        <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="logo">
-    {% endif %}
+  <img src="/static/images/logo.png" class="logo" alt="">
   <nav>
     <div class="dropdown">
       <!-- Circle with three dots -->
@@ -30,7 +28,9 @@
         <a href="{{ url_for('logout') }}" methods="post">Logout</a>
       </div>
     </div>
-    <img src="/static/images/saad.png" class="profile-circle" alt="">
+    {% if user %}
+        <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-circle">
+    {% endif %}
   </nav>
 </header>
 
@@ -107,7 +107,7 @@
       {% for user in users %}
           {% if user.username %}
         <div class="profile-card">
-          <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="image-placeholder">
+          <img src="{{ url_for('uploaded_file', filename=user.profile_picture) }}" alt="Profile Picture" class="image-placeholder">
           <h3>{{ user.username }}</h3>
           <p class="job-title">{{ user.job_title }}</p>
           <p class="freelancer">Freelancer</p>
