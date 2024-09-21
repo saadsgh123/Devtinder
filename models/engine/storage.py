@@ -116,3 +116,5 @@ class Storage:
         if user:
             user.profile_pic = profile_pic
 
+            self.__session.commit()
+
