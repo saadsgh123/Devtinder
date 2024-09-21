@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Jockey+One&display=swap" rel="stylesheet">
 </head>
 <header>
-  <img src="/static/images/logo.png" class="logo" alt="">
+  <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="logo">
   <nav>
     <div class="dropdown">
       <!-- Circle with three dots -->
