@@ -98,9 +98,9 @@ def informations():
                                     facebook_url=facebook_url, linkedln=linkedln, stackoverflow=stackoverflow,
                                     medium_url=medium_url)
 
-        return redirect(url_for('home'))
+        return redirect(url_for('home', curr_user=curr_user))
 
-    return render_template("main/informations.html", user=curr_user, user_id=user_id)
+    return render_template("main/informations.html", curr_user=curr_user, user_id=user_id)
 
 
 def allowed_file(filename):
@@ -129,12 +129,12 @@ def home():
         if request.method == 'POST':
             search = request.form['search'].split()
             if search:
-                return redirect(url_for('feed', search=search, user=curr_user))
+                return redirect(url_for('feed', search=search, curr_user=curr_user))
             else:
-                return redirect(url_for('home', user=curr_user))
+                return redirect(url_for('home', curr_user=curr_user))
     else:
         return redirect(url_for('login'))
-    return render_template("main/home.html")
+    return render_template("main/home.html", curr_user=curr_user)
 
 
 @app.route("/feed", methods=['GET', 'POST'])
@@ -162,17 +162,16 @@ def feed():
                 if not users:
                     flash("No users found", category="error-message")
             else:
-                return redirect(url_for('home', user=current_user))
-    return render_template("main/feed.html", users=users, user=curr_user)
+                return redirect(url_for('home', curr_user=current_user))
+    return render_template("main/feed.html", users=users, curr_user=curr_user)
 
 
 @app.route('/userpage/<username>')
 def userpage(username):
     user = storage.get_user_by_username(username)
-    print(user)
     if user is None:
         return redirect(url_for('not_found'))
-    return render_template("main/user_page.html", user=user)
+    return render_template("main/user_page.html", curr_user=curr_user)
 
 
 @app.route('/404')
