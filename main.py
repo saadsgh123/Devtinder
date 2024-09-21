@@ -184,7 +184,7 @@ def user_exit():
         # Do something, such as logging the exit or removing user session
         print(f"User {user_id} has left the website.")
         session.pop('user_id', None)  # Clear session if needed
-        return redirect('login')
+        return redirect(url_for('login'))
     return '', 204  # Return no content
 
 
