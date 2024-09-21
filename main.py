@@ -80,20 +80,19 @@ def informations():
         # Handle the file upload
         file = request.files['file-upload']
 
-        print("File name:", file.filename)
-        print("Firstname name:", firstname)
         # Check if the file is allowed (is a valid image)
         if file and allowed_file(file.filename):
             # Ensure filename is secure
             filename = secure_filename(file.filename)
-            print("Secure filename:", filename)
 
             # Save the file in the upload folder
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             # You can save the filename or file path to the user's profile
             storage.post_profile_pic(id=user_id, profile_pic=filename)
-
+        else:
+            flash("image error")
+            return redirect(request.url)
         # Update user information
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
                                     lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
