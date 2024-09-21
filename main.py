@@ -9,7 +9,7 @@ app = Flask(__name__)
 from models import storage
 
 app.secret_key = 'your_secret_key'
-UPLOAD_FOLDER = './uploads'
+UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Allowed file extensions for upload
@@ -77,6 +77,7 @@ def informations():
 
         # Handle the file upload
         file = request.files['file-upload']
+        print("File name:", file.filename)
         # Check if the file is allowed (is a valid image)
         if file and allowed_file(file.filename):
             # Ensure filename is secure
