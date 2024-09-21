@@ -90,9 +90,7 @@ def informations():
 
             # You can save the filename or file path to the user's profile
             storage.post_profile_pic(id=user_id, profile_pic=filename)
-        else:
-            flash("image error")
-            return redirect(request.url)
+
         # Update user information
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
                                     lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
