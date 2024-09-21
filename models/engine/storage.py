@@ -1,5 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.testing.suite.test_reflection import users
+
 from models.basemodel import Base
 from models.User import User
 from models.School import School
@@ -108,4 +110,9 @@ class Storage:
             user.stackoverflow = stackoverflow
 
             self.__session.commit()
+
+    def post_profile_pic(self, id, profile_pic):
+        user = self.get_user_by_id(id)
+        if user:
+            user.profile_pic = profile_pic
 

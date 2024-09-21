@@ -92,7 +92,7 @@ def informations():
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 
             # You can save the filename or file path to the user's profile
-            storage.update_user_profile(id=user_id, profile_pic=filename)
+            storage.post_profile_pic(id=user_id, profile_pic=filename)
 
         # Update user information
         storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
