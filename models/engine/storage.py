@@ -86,7 +86,7 @@ class Storage:
         return new_user
 
     def update_user_profile(self, id, country="", city="", firstname="", lastname="", job_title="", bio="",
-                            small_bio="", location="", exp=1,  profile_pic="", github_url="",
+                            small_bio="", location="", exp=1, github_url="",
                             facebook_url="", linkedln="", stackoverflow="", medium_url="", pro_mail=""):
         user = self.get_user_by_id(id)
         if user:
@@ -99,7 +99,6 @@ class Storage:
             user.bio = bio
             user.small_bio = small_bio if small_bio else ""
             user.location = location
-            user.profile_pic = profile_pic
             # to change attention
             # user.twitter_url = github_url
             user.github_url = github_url
