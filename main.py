@@ -180,7 +180,7 @@ def not_found():
     return """ <p> user not found </p> """
 
 
-@app.route('/user-exit', methods=['POST'])
+@app.route('/user_exit', methods=['POST'])
 def user_exit():
     # Handle user exiting (log out the user, store activity, etc.)
     if 'user_id' in session:
