@@ -77,7 +77,9 @@ def informations():
 
         # Handle the file upload
         file = request.files['file-upload']
+
         print("File name:", file.filename)
+        print("Firstname name:", firstname)
         # Check if the file is allowed (is a valid image)
         if file and allowed_file(file.filename):
             # Ensure filename is secure
