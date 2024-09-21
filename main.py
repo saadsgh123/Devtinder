@@ -58,6 +58,8 @@ def register():
 
 @app.route('/informations/', methods=['GET', 'POST'])
 def informations():
+    if session.get('user_id') is None:
+        return redirect(url_for('login'))
     user_id = session.get('user_id')
     curr_user = storage.get_user_by_id(user_id)
 
@@ -139,6 +141,8 @@ def home():
 
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
+    if session.get('user_id') is None:
+        return redirect(url_for('login'))
     users = []
     if request.method == "POST":
         search = request.form.get("search").strip()
@@ -184,9 +188,8 @@ def user_exit():
         # Do something, such as logging the exit or removing user session
         print(f"User {user_id} has left the website.")
         session.pop('user_id', None)
-    else:
         return redirect(url_for('login'))
-    return render_template("auth/login.html")
+    return redirect(url_for('login'))
 
 
 if __name__ == "__main__":
