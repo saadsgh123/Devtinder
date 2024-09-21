@@ -3,6 +3,7 @@ from os import abort
 from re import search
 
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_from_directory
+from sqlalchemy.sql.functions import current_user
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
@@ -124,13 +125,13 @@ def messages():
 @app.route("/home", methods=['GET', 'POST'])
 def home():
     if session.get('user_id'):
-        print(session.get('user_id'))
+        current_user = storage.get_user_by_id(session['user_id'])
         if request.method == 'POST':
             search = request.form['search'].split()
             if search:
-                return redirect(url_for('feed', search=search))
+                return redirect(url_for('feed', search=search, user=current_user))
             else:
-                return redirect(url_for('home'))
+                return redirect(url_for('home', user=current_user))
     else:
         return redirect(url_for('login'))
     return render_template("main/home.html")
@@ -140,6 +141,8 @@ def home():
 def feed():
     if session.get('user_id') is None:
         return redirect(url_for('login'))
+    else:
+        curr_user = storage.get_user_by_id(session['user_id'])
     users = []
     if request.method == "POST":
         search = request.form.get("search").strip()
@@ -159,8 +162,8 @@ def feed():
                 if not users:
                     flash("No users found", category="error-message")
             else:
-                return redirect(url_for('home'))
-    return render_template("main/feed.html", users=users)
+                return redirect(url_for('home', user=current_user))
+    return render_template("main/feed.html", users=users, user=curr_user)
 
 
 @app.route('/userpage/<username>')
