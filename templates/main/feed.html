@@ -109,7 +109,7 @@
       {% for user in users %}
           {% if user.username %}
         <div class="profile-card">
-        {% if user.profile_pic == "" %}
+        {% if user.profile_pic != "" %}
           <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="image-placeholder">
         {% else %}
           <img src="/static/images/v33_99.png" alt="Profile Picture" class="image-placeholder">
