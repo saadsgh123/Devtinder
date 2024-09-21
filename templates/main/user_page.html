@@ -27,7 +27,7 @@
                     </p>
                 </div>
                 <div class="profile-container">
-                    {% if user %}
+                    {% if user.profile_pic %}
                         <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
                     {% else %}
                         <img src="/images/v33_99.png" alt="Profile Picture" class="profile-circle">
@@ -100,7 +100,11 @@
                 </div>
             </div>
             <div class="footer-profile">
-                <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
+                {% if user.profile_pic %}
+                    <img src="{{ url_for('uploaded_file', filename=user.profile_pic) }}" alt="Profile Picture" class="profile-image">
+                {% else %}
+                    <img src="/static/images/v33_99.png" alt="Profile Picture" class="profile-image">
+                {% endif %}
             </div>
         </div>
     </footer>
