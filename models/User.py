@@ -1,5 +1,8 @@
 from sqlalchemy import Column, Integer, String
+from sqlalchemy.orm import relationship
+
 from models.basemodel import Base, BaseModel
+from models.engine import relations
 
 
 class User(BaseModel, Base):
@@ -25,6 +28,7 @@ class User(BaseModel, Base):
     stackoverflow = Column(String(100))
     medium_url = Column(String(100))
     pro_mail = Column(String(100))
+    tech = relationship("Technology", secondary=relations.user_tech_table, back_populates="user")
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
