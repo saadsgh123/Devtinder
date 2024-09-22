@@ -1,8 +1,8 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 
 from models.basemodel import Base, BaseModel
-from engine import relations
+from models import relations
 
 
 class Technology(BaseModel, Base):
@@ -11,7 +11,7 @@ class Technology(BaseModel, Base):
     name = Column(String(50))
     picture = Column(String(150))
     # parent_id = Column(Integer, ForeignKey('technology.id'))
-    user = relationship("User", secondary= relations.user_tech_table, back_populates="technology")
+    user = relationship("User", secondary=relations.user_tech_table, back_populates="technology")
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
