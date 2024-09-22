@@ -123,6 +123,7 @@ def update_profile():
             return redirect(url_for("home"))
     else:
         return redirect(url_for('login'))
+    return render_template("main/home.html")
 
 
 def allowed_file(filename):
