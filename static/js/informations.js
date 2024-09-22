@@ -64,7 +64,7 @@
   });
 
   // Send the list to the Flask server via AJAX
-  sendListButton.addEventListener('click', function() {
+  sendListButton.addEventListener('submitBtn', function() {
     fetch('/update_profile', {
       method: 'POST',
       headers: {
