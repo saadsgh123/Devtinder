@@ -13,7 +13,7 @@ classes = {"School": School, "Education": Education, "Technology": Technology, "
 
 class Storage:
     __engine = None
-    __session = None
+    session = None
 
     def __init__(self):
         DB_USER = "root"
