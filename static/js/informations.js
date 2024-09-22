@@ -65,5 +65,5 @@
 
   // Send the list to the Flask server via AJAX
   submitBtn.addEventListener('click', function() {
-    window.location.href = "update_profile"
+    window.location.href = "/update_profile"
   });
