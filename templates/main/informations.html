@@ -19,7 +19,7 @@
             <img src="/static/images/v33_99.png" alt="Profile Picture" class="image-placeholder">
         {% endif %}
         <label for="file-upload" class="upload-label">Choose a picture</label>
-        <input type="file" id="file-upload" name="file-upload" value="{{ url_for('uploaded_file', filename=curr_user.profile_pic) }}"  class="upload-input" accept="image/*">
+        <input type="file" id="file-upload" name="file-upload" value=""  class="upload-input" accept="image/*">
 
         <label for="firstname">First name:</label>
         <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if curr_user.firstname %} {{ curr_user.firstname }} {% endif %}" required>
