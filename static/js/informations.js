@@ -31,7 +31,7 @@
   const selectElement = document.getElementById('techSelect');
   const addButton = document.getElementById('addButton');
   const techList = document.getElementById('techList');
-  const sendListButton = document.getElementById('sendListButton');
+  const submitBtn = document.getElementById('submitBtn');
 
   let selectedTechnologies = [];
 
@@ -64,7 +64,7 @@
   });
 
   // Send the list to the Flask server via AJAX
-  sendListButton.addEventListener('submitBtn', function() {
+  submitBtn.addEventListener('click', function() {
     fetch('/update_profile', {
       method: 'POST',
       headers: {
