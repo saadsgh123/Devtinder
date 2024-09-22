@@ -65,18 +65,5 @@
 
   // Send the list to the Flask server via AJAX
   submitBtn.addEventListener('click', function() {
-    fetch('/update_profile', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ techList: selectedTechnologies })
-    })
-        .then(response => response.json())
-        .then(data => {
-          alert('List sent to the server: ' + data.message);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-        });
+    window.location.href = "/update_profile"
   });
