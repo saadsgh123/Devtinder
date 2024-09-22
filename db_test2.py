@@ -11,5 +11,6 @@ if __name__ == '__main__':
     tech1 = Technology(name="Python", picture="/static/images/python.png")
     user.technology.append(tech1)
     user.save()
+
     print("=========== END =============")
     print("")
