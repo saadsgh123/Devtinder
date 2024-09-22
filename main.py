@@ -75,8 +75,6 @@ def informations():
     else:
         return redirect(url_for('login'))
 
-
-
     return render_template("main/informations.html", curr_user=curr_user, user_id=user_id)
 
 
@@ -123,7 +121,7 @@ def update_profile():
             return redirect(url_for("home"))
     else:
         return redirect(url_for('login'))
-    return render_template("main/home.html")
+    return render_template("main/home.html", curr_user=curr_user)
 
 
 def allowed_file(filename):
