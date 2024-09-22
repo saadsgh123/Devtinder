@@ -17,16 +17,22 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 
+def isUserExist():
+    user_id = session.get("user_id")
+    user = storage.get_user_by_id(user_id)
+    return user is not None and user_id is not None
+
+
 @app.route('/')
 def landing_page():
-    if session.get('user_id'):
+    if isUserExist():
         return redirect(url_for('home'))
     return render_template("auth/landing_page.html", title='Dev Tinder - Find Your Ideal Tech Talent')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if session.get('user_id'):
+    if isUserExist():
         return redirect(url_for('home'))
     if request.method == 'POST':
         email = request.form.get('email')
@@ -45,62 +51,78 @@ def login():
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-    if request.method == "POST":
-        username = request.form.get('username')
-        email = request.form.get('email')
-        password = request.form.get('password')
-        confirm_password = request.form.get('confirm_password')
-        if password == confirm_password:
-            new_user = storage.create_user_profile(username=username, email=email, password=password)
-            session['user_id'] = new_user.id
-            return redirect(url_for('informations'))
+    if isUserExist():
+        return redirect("home")
+    else:
+        if request.method == "POST":
+            username = request.form.get('username')
+            email = request.form.get('email')
+            password = request.form.get('password')
+            confirm_password = request.form.get('confirm_password')
+            if password == confirm_password:
+                new_user = storage.create_user_profile(username=username, email=email, password=password)
+                session['user_id'] = new_user.id
+                return redirect(url_for('informations'))
+
     return render_template("auth/register.html")
 
 
 @app.route('/informations/', methods=['GET', 'POST'])
 def informations():
-    if session.get('user_id') is None:
+    if isUserExist():
+        user_id = session.get('user_id')
+        curr_user = storage.get_user_by_id(user_id)
+    else:
         return redirect(url_for('login'))
-    user_id = session.get('user_id')
-    curr_user = storage.get_user_by_id(user_id)
 
-    if request.method == 'POST':
-        # Get other form data
-        firstname = request.form.get('firstname')
-        lastname = request.form.get('lastname')
-        job_title = request.form.get('job-title')
-        city = request.form.get('city')
-        bio = request.form.get("bio")
-        small_bio = request.form.get("small_bio")
-        github_url = request.form.get("github_url")
-        facebook_url = request.form.get("facebook_url")
-        linkedln = request.form.get("linkedln")
-        stackoverflow = request.form.get("stackoverflow")
-        medium_url = request.form.get("medium_url")
 
-        # Handle the file upload
-        file = request.files['file-upload']
-
-        # Check if the file is allowed (is a valid image)
-        if file and allowed_file(file.filename):
-            # Ensure filename is secure
-            filename = secure_filename(file.filename)
-
-            # Save the file in the upload folder
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-            # You can save the filename or file path to the user's profile
-            storage.post_profile_pic(id=user_id, profile_pic=filename)
-
-        # Update user information
-        storage.update_user_profile(id=user_id, job_title=job_title, city=city, firstname=firstname,
-                                    lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
-                                    facebook_url=facebook_url, linkedln=linkedln, stackoverflow=stackoverflow,
-                                    medium_url=medium_url)
-
-        return redirect(url_for('home', curr_user=curr_user))
 
     return render_template("main/informations.html", curr_user=curr_user, user_id=user_id)
+
+
+@app.route('/update_profile')
+def update_profile():
+    if isUserExist():
+        user_id = session.get('user_id')
+        curr_user = storage.get_user_by_id(user_id)
+
+        if request.method == 'POST':
+            # Get other form data
+            firstname = request.form.get('firstname')
+            lastname = request.form.get('lastname')
+            job_title = request.form.get('job-title')
+            city = request.form.get('city')
+            bio = request.form.get("bio")
+            small_bio = request.form.get("small_bio")
+            github_url = request.form.get("github_url")
+            facebook_url = request.form.get("facebook_url")
+            linkedln = request.form.get("linkedln")
+            stackoverflow = request.form.get("stackoverflow")
+            medium_url = request.form.get("medium_url")
+
+            # Handle the file upload
+            file = request.files['file-upload']
+
+            # Check if the file is allowed (is a valid image)
+            if file and allowed_file(file.filename):
+                # Ensure filename is secure
+                filename = secure_filename(file.filename)
+
+                # Save the file in the upload folder
+                file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
+                # You can save the filename or file path to the user's profile
+                storage.post_profile_pic(id=user_id, profile_pic=filename)
+
+            # Update user information
+            storage.update_user_profile(id=curr_user.id, job_title=job_title, city=city, firstname=firstname,
+                                        lastname=lastname, bio=bio, small_bio=small_bio, github_url=github_url,
+                                        facebook_url=facebook_url, linkedln=linkedln, stackoverflow=stackoverflow,
+                                        medium_url=medium_url)
+
+            return redirect(url_for("home"))
+    else:
+        return redirect(url_for('login'))
 
 
 def allowed_file(filename):
@@ -124,12 +146,12 @@ def messages():
 
 @app.route("/home", methods=['GET', 'POST'])
 def home():
-    if session.get('user_id'):
+    if isUserExist():
         curr_user = storage.get_user_by_id(session['user_id'])
         if request.method == 'POST':
             search = request.form['search'].split()
             if search:
-                return redirect(url_for('feed', search=search, curr_user=curr_user))
+                return redirect(url_for('feed', search=search))
             else:
                 return redirect(url_for('home', curr_user=curr_user))
     else:
