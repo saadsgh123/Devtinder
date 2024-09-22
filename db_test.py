@@ -1,7 +1,10 @@
+from models.Technology import Technology
+
 if __name__ == '__main__':
     from models import storage
     from models.School import School
     from models.User import User
+    from models.relations import user_tech_table
 
     print("=========== Get all users =============")
     users = storage.all(User).values()
@@ -47,3 +50,4 @@ if __name__ == '__main__':
         print(e)
     print("=========== END =============")
     print("")
+
