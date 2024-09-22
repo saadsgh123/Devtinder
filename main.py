@@ -72,7 +72,7 @@ def informations():
     if isUserExist():
         user_id = session.get('user_id')
         curr_user = storage.get_user_by_id(user_id)
-        return redirect(url_for("informations", curr_user=curr_user))
+        return render_template("main/informations.html", curr_user=curr_user)
     else:
         return redirect(url_for('login'))
 
