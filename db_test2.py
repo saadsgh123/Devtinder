@@ -10,7 +10,7 @@ if __name__ == '__main__':
     user = User(username="saadsgh123", email="saadsgh123@gmail.com", password="saad")
     tech1 = Technology(name="Python", picture="/static/images/python.png")
     user.technology.append(tech1)
-    storage.session.add(user)
+    storage.session.new(user)
     storage.session.commit()
     storage.session.close()
     print("=========== END =============")
