@@ -9,7 +9,7 @@ if __name__ == '__main__':
     print("=========== Create technologie =============")
     user = User(username="saadsgh123", email="saadsgh123@gmail.com", password="saad")
     tech1 = Technology(name="Python", picture="/static/images/python.png")
-    user.tech.append(tech1)
+    user.technology.append(tech1)
     storage.session.add(user)
     storage.session.commit()
     storage.session.close()
