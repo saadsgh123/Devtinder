@@ -42,6 +42,6 @@ if __name__ == '__main__':
     print("=========== END =============\n")
 
     print("=========== Create new technology =============")
-    tech = storage.create_new_technology("Kotlin", "")
-    print(tech.id, tech.name)
+    tech1 = storage.create_new_technology("js", "")
+    print(tech1.id, tech1.name)
     print("=========== END =============\n")
