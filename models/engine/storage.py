@@ -2,13 +2,15 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.testing.suite.test_reflection import users
 
+from models import storage
 from models.basemodel import Base
 from models.User import User
 from models.School import School
 from models.Education import Education
 from models.Technology import Technology
+from models.relations import user_tech_table
 
-classes = {"School": School, "Education": Education, "Technology": Technology, "User": User}
+classes = {"School": School, "Education": Education, "Technology": Technology, "User": User, "UserTech": user_tech_table}
 
 
 class Storage:
@@ -117,4 +119,9 @@ class Storage:
             user.profile_pic = profile_pic
 
             self.__session.commit()
+
+    # technologies
+    @staticmethod
+    def get_all_tech():
+        pass
 
