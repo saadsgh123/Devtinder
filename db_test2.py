@@ -36,7 +36,7 @@ if __name__ == '__main__':
 
     print("=========== Get list of skills =============")
     techs = storage.get_all_tech()
-    print(f"type: {techs}")
+    print(f"type: {type(techs)}")
     for tech in techs:
         print(tech.name)
     print("=========== END =============\n")
