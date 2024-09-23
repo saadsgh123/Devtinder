@@ -42,6 +42,11 @@ if __name__ == '__main__':
     print("=========== END =============\n")
 
     print("=========== Create new technology =============")
-    tech1 = storage.create_new_technology("js", "")
-    print(tech1.id, tech1.name)
+    # tech1 = storage.create_new_technology("js", "")
+    # print(tech1.id, tech1.name)
+    print("=========== END =============\n")
+
+    print("=========== Search for a tech by name =============")
+    tech2 = storage.get_user_by_id("Python")
+    print(tech2.id)
     print("=========== END =============\n")
