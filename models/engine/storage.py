@@ -136,7 +136,6 @@ class Storage:
     def create_new_technology(name, picture):
         new_tech = Technology(name=name, picture=picture)
         new_tech.save()
-        return  new_tech
+        return new_tech
 
-    def update_technology(self):
-        pass
+

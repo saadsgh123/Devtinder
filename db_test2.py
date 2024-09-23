@@ -3,7 +3,6 @@ from models import storage
 from models.Technology import Technology
 
 if __name__ == '__main__':
-    from models.relations import user_tech_table
     from models.User import User
 
     # Output for creating technologies

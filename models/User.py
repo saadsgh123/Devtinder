@@ -28,7 +28,10 @@ class User(BaseModel, Base):
     stackoverflow = Column(String(100))
     medium_url = Column(String(100))
     pro_mail = Column(String(100))
+
     technology = relationship("Technology", secondary=relations.user_tech_table, back_populates="user")
+    # One-to-Many relationship with Education
+    education = relationship("Education", back_populates="user")
 
     def __init__(self, *args, **kwargs):
         """initializes user"""
