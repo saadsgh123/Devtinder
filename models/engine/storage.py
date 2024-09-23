@@ -20,7 +20,7 @@ class Storage:
         DB_USER = "root"
         DB_PASSWORD = "anasaad"
         DB_HOST = "localhost"
-        DB_NAME = "test4"
+        DB_NAME = "test5"
         self.__engine = create_engine('mysql+mysqldb://{}:{}@{}/{}'.
                                       format(DB_USER, DB_PASSWORD, DB_HOST, DB_NAME))
         self.reload()
@@ -132,10 +132,90 @@ class Storage:
     def get_tech_by_name(self, name):
         return self.__session.query(Technology).filter(Technology.name == name).first()
 
-    @staticmethod
-    def create_new_technology(name, picture):
-        new_tech = Technology(name=name, picture=picture)
-        new_tech.save()
-        return new_tech
+    def get_technology_by_id(self, id):
+        """Get a technology by its ID"""
+        return self.__session.query(Technology).filter(Technology.id == id).first()
 
+    def create_technology(self, name, picture):
+        """Create a new technology"""
+        new_technology = Technology(name=name, picture=picture)
+        self.new(new_technology)
+        return new_technology
 
+    def update_technology(self, id, name=None, picture=None):
+        """Update an existing technology"""
+        tech = self.get_technology_by_id(id)
+        if tech:
+            if name:
+                tech.name = name
+            if picture:
+                tech.picture = picture
+            self.__session.commit()
+
+    def delete_technology(self, id):
+        """Delete a technology by ID"""
+        tech = self.get_technology_by_id(id)
+        if tech:
+            self.delete(tech)
+            self.save()
+
+    def get_education_by_id(self, id):
+        """Get an education record by its ID"""
+        return self.__session.query(Education).filter(Education.id == id).first()
+
+    def get_educations_by_user_id(self, user_id):
+        """Get all education records for a specific user"""
+        return self.__session.query(Education).filter(Education.user_id == user_id).all()
+
+    def create_education(self, user_id, school_id, start_date, end_date):
+        """Create a new education record"""
+        new_education = Education(user_id=user_id, school_id=school_id, start_date=start_date, end_date=end_date)
+        self.new(new_education)
+        return new_education
+
+    def update_education(self, id, school_id=None, start_date=None, end_date=None):
+        """Update an existing education record"""
+        education = self.get_education_by_id(id)
+        if education:
+            if school_id:
+                education.school_id = school_id
+            if start_date:
+                education.start_date = start_date
+            if end_date:
+                education.end_date = end_date
+            self.__session.commit()
+
+    def delete_education(self, id):
+        """Delete an education record by ID"""
+        education = self.get_education_by_id(id)
+        if education:
+            self.delete(education)
+            self.save()
+
+    def get_school_by_id(self, id):
+        """Get a school by its ID"""
+        return self.__session.query(School).filter(School.id == id).first()
+
+    def get_school_by_name(self, name):
+        """Get a school by its name"""
+        return self.__session.query(School).filter(School.name == name).first()
+
+    def create_school(self, name):
+        """Create a new school"""
+        new_school = School(name=name)
+        self.new(new_school)
+        return new_school
+
+    def update_school(self, id, name=None):
+        """Update an existing school"""
+        school = self.get_school_by_id(id)
+        if school and name:
+            school.name = name
+            self.__session.commit()
+
+    def delete_school(self, id):
+        """Delete a school by ID"""
+        school = self.get_school_by_id(id)
+        if school:
+            self.delete(school)
+            self.save()
