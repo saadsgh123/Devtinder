@@ -12,7 +12,7 @@ if __name__ == '__main__':
 
     print("=========== add a list of skills & assign them a user =============")
     skills = ["Python", "JavaScript", "HTML"]
-    user = User(username="saad", email="saad@gmail.com", password="saad")
+    user = User(username="anasaad", email="anasaad@gmail.com", password="saad")
     for skill in skills:
         tech = Technology(name=skill, picture="/static/images/python.png")
         user.technology.append(tech)
