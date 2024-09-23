@@ -38,7 +38,7 @@ if __name__ == '__main__':
     techs = storage.get_all_tech()
     print(f"type: {type(techs)}")
     for tech in techs:
-        print(tech.name)
+        print(tech.id, tech.name)
     print("=========== END =============\n")
 
     print("=========== Create new technology =============")
