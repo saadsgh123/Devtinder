@@ -29,5 +29,6 @@ if __name__ == '__main__':
     print("=========== Get user skills =============")
     tech_user = storage.all(User).values()
     for v in tech_user:
-        print(v)
+        for tech in v.technology:
+            print(tech.name)
     print("=========== END =============\n")
