@@ -30,5 +30,5 @@ if __name__ == '__main__':
     tech_user = storage.all(User).values()
     for v in tech_user:
         for tech in v.technology:
-            print(tech.name)
+            print(v.username, tech.name)
     print("=========== END =============\n")
