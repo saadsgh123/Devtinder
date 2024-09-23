@@ -40,3 +40,8 @@ if __name__ == '__main__':
     for tech in techs:
         print(tech.name)
     print("=========== END =============\n")
+
+    print("=========== Create new technology =============")
+    tech = storage.create_new_technology("Kotlin", "")
+    print(tech.id, tech.name)
+    print("=========== END =============\n")

@@ -14,7 +14,7 @@ classes = {"School": School, "Education": Education, "Technology": Technology, "
 
 class Storage:
     __engine = None
-    session = None
+    __session = None
 
     def __init__(self):
         DB_USER = "root"
@@ -128,3 +128,14 @@ class Storage:
         for obj in objs:
             techs.append(obj)
         return techs
+
+    def get_tech_by_name(self, name):
+        return self.__session.query(Technology).filter(Technology.name == name).first()
+
+    @staticmethod
+    def create_new_technology(name, picture):
+        new_tech = Technology(name=name, picture=picture)
+        new_tech.save()
+
+    def update_technology(self):
+        pass
