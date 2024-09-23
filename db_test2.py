@@ -1,5 +1,6 @@
 # Import storage at the top (if circular dependency is fixed)
 from models import storage
+from models.Technology import Technology
 
 if __name__ == '__main__':
     from models.relations import user_tech_table
@@ -32,3 +33,7 @@ if __name__ == '__main__':
         for tech in v.technology:
             print(v.username, tech.name)
     print("=========== END =============\n")
+
+    techs = storage.all(Technology).values()
+    for tech in techs:
+        print(tech.name)

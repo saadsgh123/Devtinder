@@ -1,3 +1,4 @@
+from flask import session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from models.basemodel import Base
@@ -118,7 +119,6 @@ class Storage:
             self.__session.commit()
 
     # technologies
-    @staticmethod
-    def get_all_tech():
-        pass
+    def get_all_tech(self):
+        return self.all(Technology).values()
 
