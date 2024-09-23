@@ -9,17 +9,13 @@
 <body>
 <div class="form-container">
     <h2>Enter Your Information</h2>
-
+    <form id="profile-form" action="#" method="post" enctype="multipart/form-data">
         <fieldset>
             <legend>Personal Information</legend>
 
-        {% if curr_user.profile_pic %}
-            <img src="{{ url_for('uploaded_file', filename=curr_user.profile_pic) }}" alt="Profile Picture" class="image-placeholder">
-        {% else %}
-            <img src="/static/images/v33_99.png" alt="Profile Picture" class="image-placeholder">
-        {% endif %}
+        <img src="{{ url_for('uploaded_file', filename=curr_user.profile_pic) }}" alt="Profile Picture" class="image-placeholder">
         <label for="file-upload" class="upload-label">Choose a picture</label>
-        <input type="file" id="file-upload" name="file-upload" value=""  class="upload-input" accept="image/*">
+        <input type="file" id="file-upload" name="file-upload" value="{{ url_for('uploaded_file', filename=curr_user.profile_pic) }}"  class="upload-input" accept="image/*">
 
         <label for="firstname">First name:</label>
         <input type="text" id="firstname" name="firstname" placeholder="First name" value="{% if curr_user.firstname %} {{ curr_user.firstname }} {% endif %}" required>
@@ -64,21 +60,6 @@
         </fieldset>
 
         <fieldset>
-            <legend> Education & Skills </legend>
-            <div class="select-container">
-                <label for="techSelect">Skills:</label>
-                <select id="techSelect">
-                    <option value="JavaScript">JavaScript</option>
-                    <option value="Python">Python</option>
-                    <option value="Java">Java</option>
-                    <option value="C#">C#</option>
-                    <option value="Ruby">Ruby</option>
-                </select>
-                <button id="addButton">Add to List</button>
-            </div>
-        </fieldset>
-
-        <fieldset>
             <legend>Social presence</legend>
 
         <label for="github_url">GitHub URL:</label>
@@ -98,9 +79,39 @@
 
         </fieldset>
 
-        <button id="submitBtn" type="submit">Submit</button>
-
+        <button type="submit">Submit</button>
+    </form>
 </div>
-<script src="/static/js/informations.js"></script>
+<script>
+    // Fetch countries using REST Countries API
+    async function fetchCountries() {
+        try {
+            const response = await fetch('https://restcountries.com/v3.1/all');
+            const countries = await response.json();
+
+            // Sort countries alphabetically by their common name
+            countries.sort((a, b) => {
+                return a.name.common.localeCompare(b.name.common);
+            });
+
+            const countrySelect = document.getElementById('country');
+            countrySelect.innerHTML = '';  // Clear initial options
+
+            // Populate the select input with sorted countries
+            countries.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.cca2;  // Use country code as value
+                option.textContent = country.name.common;  // Use country name
+                countrySelect.appendChild(option);
+            });
+
+        } catch (error) {
+            console.error('Error fetching countries:', error);
+        }
+    }
+
+    // Call the function to load and sort countries when the page loads
+    document.addEventListener('DOMContentLoaded', fetchCountries);
+</script>
 </body>
 </html>
