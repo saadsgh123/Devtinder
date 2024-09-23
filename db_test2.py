@@ -1,7 +1,7 @@
-
+from models import storage
 
 if __name__ == '__main__':
-    # from models import storage
+
     from models.relations import user_tech_table
 
     print("=========== Create technologie =============")
