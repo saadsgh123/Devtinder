@@ -34,6 +34,7 @@ if __name__ == '__main__':
             print(v.username, tech.name)
     print("=========== END =============\n")
 
-    techs = storage.all(Technology).values()
-    for tech in techs:
-        print(tech.name)
+    print("=========== Get list of skills =============")
+    techs = storage.get_all_tech()
+    print(f"type: {techs}")
+    print("=========== END =============\n")

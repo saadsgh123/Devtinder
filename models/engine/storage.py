@@ -8,7 +8,8 @@ from models.Education import Education
 from models.Technology import Technology
 from models.relations import user_tech_table
 
-classes = {"School": School, "Education": Education, "Technology": Technology, "User": User, "UserTech": user_tech_table}
+classes = {"School": School, "Education": Education, "Technology": Technology, "User": User,
+           "UserTech": user_tech_table}
 
 
 class Storage:
@@ -118,7 +119,12 @@ class Storage:
 
             self.__session.commit()
 
-    # technologies
     def get_all_tech(self):
-        return self.all(Technology).values()
-
+        """ function that return a list of technologies
+            Return: List<Technology>
+         """
+        techs = []
+        objs = self.all(classes["Technology"]).values()
+        for obj in objs:
+            techs.append(obj)
+        return techs
