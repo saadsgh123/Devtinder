@@ -47,6 +47,6 @@ if __name__ == '__main__':
     print("=========== END =============\n")
 
     print("=========== Search for a tech by name =============")
-    tech2 = storage.get_user_by_id("Python")
+    tech2 = storage.get_tech_by_name("Python")
     print(tech2.id)
     print("=========== END =============\n")
