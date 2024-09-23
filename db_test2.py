@@ -1,9 +1,11 @@
-from models import storage
-from models.User import User
-from models.Technology import Technology
-from models.relations import user_tech_table
+
 
 if __name__ == '__main__':
+    from models import storage
+    from models.User import User
+    from models.Technology import Technology
+    from models.relations import user_tech_table
+
     print("=========== Create technologie =============")
     # user = User(username="saadsgh123", email="saadsgh123@gmail.com", password="saad")
     # tech1 = Technology(name="Python", picture="/static/images/python.png")
